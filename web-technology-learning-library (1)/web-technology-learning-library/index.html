@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web Technology – The Complete Learning Library for B.Tech students. Study all 5 units, interactive examples, diagrams, and exam revision notes.">
+  <title>Web Technology – The Complete Learning Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Shared Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.svg" alt="Web Technology Library Logo" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-title">Web Technology</span>
+          <span class="brand-subtitle">The Complete Learning Library</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="index.html" class="header-home-link active">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Home</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-search" role="search">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="global-search-input" class="search-input" type="search" placeholder="Search all 63 syllabus topics..." aria-label="Search syllabus topics" autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown" role="region" aria-label="Search results"></div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-progress-pill" title="Overall Syllabus Completion">
+        <span>Progress:</span>
+        <strong id="header-progress-percent">0%</strong>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch to light theme">
+        <span aria-hidden="true">☀️</span> <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside id="site-sidebar" class="sidebar" aria-label="Course Units">
+      <div class="sidebar-section-label">Library Navigation</div>
+      <ul class="sidebar-nav-list">
+        <li>
+          <a href="index.html" class="sidebar-link active">
+            <span>Dashboard Home</span>
+            <span class="sidebar-unit-badge">LMS</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-section-label">Course Units (5)</div>
+      <ul class="sidebar-nav-list">
+        <li>
+          <a href="unit-1.html" class="sidebar-link">
+            <span>1. Internet &amp; Web Arch</span>
+            <span class="sidebar-unit-badge">7h</span>
+          </a>
+        </li>
+        <li>
+          <a href="unit-2.html" class="sidebar-link">
+            <span>2. HTML, CSS, JS &amp; XML</span>
+            <span class="sidebar-unit-badge">8h</span>
+          </a>
+        </li>
+        <li>
+          <a href="unit-3.html" class="sidebar-link">
+            <span>3. Web Services &amp; AJAX</span>
+            <span class="sidebar-unit-badge">7h</span>
+          </a>
+        </li>
+        <li>
+          <a href="unit-4.html" class="sidebar-link">
+            <span>4. Web 2.0, 3.0 &amp; Modern</span>
+            <span class="sidebar-unit-badge">7h</span>
+          </a>
+        </li>
+        <li>
+          <a href="unit-5.html" class="sidebar-link">
+            <span>5. Web 4.0 &amp; Emerging</span>
+            <span class="sidebar-unit-badge">7h</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-section-label">Quick Revision</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="unit-1.html#unit-1-revision" class="sidebar-link"><span>Unit 1 Revision</span></a></li>
+        <li><a href="unit-2.html#unit-2-revision" class="sidebar-link"><span>Unit 2 Revision</span></a></li>
+        <li><a href="unit-3.html#unit-3-revision" class="sidebar-link"><span>Unit 3 Revision</span></a></li>
+        <li><a href="unit-4.html#unit-4-revision" class="sidebar-link"><span>Unit 4 Revision</span></a></li>
+        <li><a href="unit-5.html#unit-5-revision" class="sidebar-link"><span>Unit 5 Revision</span></a></li>
+      </ul>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+      <div class="content-container">
+        <!-- Welcome Section -->
+        <section class="hero-welcome" aria-labelledby="welcome-heading">
+          <span class="hero-eyebrow">B.Tech Web Technology • Complete Syllabus</span>
+          <h1 id="welcome-heading">Welcome to Web Technology Learning Library</h1>
+          <p class="hero-subtitle">Your complete learning companion for understanding modern web technologies.</p>
+          <div class="hero-actions">
+            <a id="continue-learning-btn" href="unit-1.html" class="btn btn-primary">Start Unit 1: Internet Fundamentals</a>
+            <a href="#units-overview" class="btn btn-secondary">Browse All 5 Units</a>
+          </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-grid" aria-label="Learning Statistics">
+          <div class="stat-card">
+            <div class="stat-label">Total Units</div>
+            <div class="stat-value">5</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total Topics</div>
+            <div id="stat-total-topics" class="stat-value accent-blue">63</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Completed Topics</div>
+            <div id="stat-completed-topics" class="stat-value accent-teal">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Overall Progress</div>
+            <div id="stat-overall-progress" class="stat-value">0%</div>
+          </div>
+        </section>
+
+        <!-- Overall Progress Bar -->
+        <section class="overall-progress-card" aria-label="Overall Syllabus Progress">
+          <div class="overall-progress-header">
+            <h2>Overall Syllabus Mastery</h2>
+            <span id="overall-progress-meta" class="overall-progress-meta">0 of 63 topics completed</span>
+          </div>
+          <div class="progress-track">
+            <div id="overall-progress-bar" class="progress-fill"></div>
+          </div>
+        </section>
+
+        <!-- Unit Cards -->
+        <section id="units-overview" aria-labelledby="units-heading">
+          <h2 id="units-heading" class="section-heading">Syllabus Units</h2>
+          <div class="units-grid">
+            <!-- Unit 1 -->
+            <article class="unit-card">
+              <div>
+                <div class="unit-card-top">
+                  <span class="unit-number-badge">Unit 1</span>
+                  <span class="unit-duration-badge">Duration: 7 Hours</span>
+                </div>
+                <h3 class="unit-card-title">Internet Fundamentals and Web Architecture</h3>
+                <p class="unit-card-desc">History of the Internet, WWW, HTML, HTTP/HTTPS, email protocols (SMTP, POP3, MIME, IMAP), DNS resolution, web browsers, and web servers.</p>
+              </div>
+              <div class="unit-card-footer">
+                <div>
+                  <div class="unit-card-stats">
+                    <span id="unit-1-count">0/11 topics</span>
+                    <strong id="unit-1-percent">0%</strong>
+                  </div>
+                  <div class="progress-track"><div id="unit-1-bar" class="progress-fill"></div></div>
+                </div>
+                <a href="unit-1.html" class="btn btn-primary">Open Unit 1</a>
+              </div>
+            </article>
+
+            <!-- Unit 2 -->
+            <article class="unit-card">
+              <div>
+                <div class="unit-card-top">
+                  <span class="unit-number-badge">Unit 2</span>
+                  <span class="unit-duration-badge">Duration: 8 Hours</span>
+                </div>
+                <h3 class="unit-card-title">HTML, CSS, JavaScript and XML</h3>
+                <p class="unit-card-desc">Lists, Tables, Images, Forms, Frames, CSS Box Model &amp; Layouts, Dynamic HTML with JavaScript, DTD, XML Schemas, Object Models, XSLT, DOM, and SAX.</p>
+              </div>
+              <div class="unit-card-footer">
+                <div>
+                  <div class="unit-card-stats">
+                    <span id="unit-2-count">0/15 topics</span>
+                    <strong id="unit-2-percent">0%</strong>
+                  </div>
+                  <div class="progress-track"><div id="unit-2-bar" class="progress-fill"></div></div>
+                </div>
+                <a href="unit-2.html" class="btn btn-primary">Open Unit 2</a>
+              </div>
+            </article>
+
+            <!-- Unit 3 -->
+            <article class="unit-card">
+              <div>
+                <div class="unit-card-top">
+                  <span class="unit-number-badge">Unit 3</span>
+                  <span class="unit-duration-badge">Duration: 7 Hours</span>
+                </div>
+                <h3 class="unit-card-title">Web Services and Distributed Web Technologies</h3>
+                <p class="unit-card-desc">Web Services, UDDI, SOAP, WSDL, Service-Oriented Architecture, deploying services, AJAX performance &amp; programming (XHR &amp; Fetch), and CORBA.</p>
+              </div>
+              <div class="unit-card-footer">
+                <div>
+                  <div class="unit-card-stats">
+                    <span id="unit-3-count">0/9 topics</span>
+                    <strong id="unit-3-percent">0%</strong>
+                  </div>
+                  <div class="progress-track"><div id="unit-3-bar" class="progress-fill"></div></div>
+                </div>
+                <a href="unit-3.html" class="btn btn-primary">Open Unit 3</a>
+              </div>
+            </article>
+
+            <!-- Unit 4 -->
+            <article class="unit-card">
+              <div>
+                <div class="unit-card-top">
+                  <span class="unit-number-badge">Unit 4</span>
+                  <span class="unit-duration-badge">Duration: 7 Hours</span>
+                </div>
+                <h3 class="unit-card-title">Web 2.0, Web 3.0 and Modern Web Technologies</h3>
+                <p class="unit-card-desc">Blogs, Wikis, Social Networks, RSS, Ruby on Rails, Open APIs, Semantic Web &amp; RDF, Search Engines, Recommenders, Blockchain, Edge Computing, and Dark Mode.</p>
+              </div>
+              <div class="unit-card-footer">
+                <div>
+                  <div class="unit-card-stats">
+                    <span id="unit-4-count">0/19 topics</span>
+                    <strong id="unit-4-percent">0%</strong>
+                  </div>
+                  <div class="progress-track"><div id="unit-4-bar" class="progress-fill"></div></div>
+                </div>
+                <a href="unit-4.html" class="btn btn-primary">Open Unit 4</a>
+              </div>
+            </article>
+
+            <!-- Unit 5 -->
+            <article class="unit-card">
+              <div>
+                <div class="unit-card-top">
+                  <span class="unit-number-badge">Unit 5</span>
+                  <span class="unit-duration-badge">Duration: 7 Hours</span>
+                </div>
+                <h3 class="unit-card-title">Web 4.0 and Emerging Web Technologies</h3>
+                <p class="unit-card-desc">AI-powered Web 4.0, Decentralized Web (DWeb), Blockchain Integration, IoT in Web, AR/VR (WebXR), Smart Web, Adaptive Interfaces, Automation, and 5G.</p>
+              </div>
+              <div class="unit-card-footer">
+                <div>
+                  <div class="unit-card-stats">
+                    <span id="unit-5-count">0/9 topics</span>
+                    <strong id="unit-5-percent">0%</strong>
+                  </div>
+                  <div class="progress-track"><div id="unit-5-bar" class="progress-fill"></div></div>
+                </div>
+                <a href="unit-5.html" class="btn btn-primary">Open Unit 5</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Quick Navigation -->
+        <section aria-labelledby="quick-nav-heading">
+          <h2 id="quick-nav-heading" class="section-heading">Quick Navigation &amp; Study Tools</h2>
+          <div class="quick-nav-grid">
+            <div class="quick-panel">
+              <h3>Continue Learning</h3>
+              <p id="continue-learning-desc">Jump straight into your next topic or start from Unit 1.</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <a href="unit-1.html" class="btn btn-secondary">Unit 1</a>
+                <a href="unit-2.html" class="btn btn-secondary">Unit 2</a>
+                <a href="unit-3.html" class="btn btn-secondary">Unit 3</a>
+                <a href="unit-4.html" class="btn btn-secondary">Unit 4</a>
+                <a href="unit-5.html" class="btn btn-secondary">Unit 5</a>
+              </div>
+            </div>
+
+            <div class="quick-panel">
+              <h3>Recently Studied Topics</h3>
+              <ul id="recent-topics-list" class="recent-list">
+                <li style="font-size:0.84rem;color:var(--text-muted);">Loading your study history...</li>
+              </ul>
+            </div>
+
+            <div class="quick-panel">
+              <h3>Search Topics</h3>
+              <p>Instantly find definitions, protocols, XML schemas, or code examples across all 5 units (shortcut: press <code>/</code>).</p>
+              <button id="quick-search-focus-btn" type="button" class="btn btn-secondary">Search Syllabus</button>
+            </div>
+
+            <div class="quick-panel">
+              <h3>Quick Revision</h3>
+              <p>Jump directly to exam-ready definitions, key differences, and FAQs for each unit.</p>
+              <div class="quick-revision-links">
+                <a href="unit-1.html#unit-1-revision" class="revision-chip">Unit 1 Revision</a>
+                <a href="unit-2.html#unit-2-revision" class="revision-chip">Unit 2 Revision</a>
+                <a href="unit-3.html#unit-3-revision" class="revision-chip">Unit 3 Revision</a>
+                <a href="unit-4.html#unit-4-revision" class="revision-chip">Unit 4 Revision</a>
+                <a href="unit-5.html#unit-5-revision" class="revision-chip">Unit 5 Revision</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <span>Web Technology – The Complete Learning Library (B.Tech Syllabus)</span>
+          <span>Static HTML5 / CSS3 / Vanilla JS • LocalStorage Progress</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/syllabus-data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

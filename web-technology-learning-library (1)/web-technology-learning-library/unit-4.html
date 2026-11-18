@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unit 4 – Web 2.0, Web 3.0 and Modern Web Technologies: Blogs, Wikis, Social Networks, AJAX, RSS, Ruby on Rails, Open APIs, Semantic Web, RDF, Search Engines, Recommenders, Blockchain, Edge Computing, and Dark Mode.">
+  <title>Unit 4 – Web 2.0, Web 3.0 and Modern Web Technologies | Web Technology Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/units.css">
+</head>
+<body data-unit-id="4">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.svg" alt="Web Technology Library Logo" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-title">Web Technology</span>
+          <span class="brand-subtitle">The Complete Learning Library</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="index.html" class="header-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Dashboard</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-search" role="search">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="global-search-input" class="search-input" type="search" placeholder="Search all 63 syllabus topics..." aria-label="Search syllabus topics" autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown" role="region" aria-label="Search results"></div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-progress-pill" title="Overall Syllabus Completion">
+        <span>Overall:</span>
+        <strong id="header-progress-percent">0%</strong>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch to light theme">
+        <span aria-hidden="true">☀️</span> <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside id="site-sidebar" class="sidebar" aria-label="Course and Unit Navigation">
+      <div class="sidebar-section-label">Library Navigation</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="index.html" class="sidebar-link"><span>← Back to Dashboard</span><span class="sidebar-unit-badge">Home</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">All Units</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="unit-1.html" class="sidebar-link"><span>1. Internet &amp; Web Arch</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-2.html" class="sidebar-link"><span>2. HTML, CSS, JS &amp; XML</span><span class="sidebar-unit-badge">8h</span></a></li>
+        <li><a href="unit-3.html" class="sidebar-link"><span>3. Web Services &amp; AJAX</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-4.html" class="sidebar-link active"><span>4. Web 2.0, 3.0 &amp; Modern</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-5.html" class="sidebar-link"><span>5. Web 4.0 &amp; Emerging</span><span class="sidebar-unit-badge">7h</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">Unit 4 Topics (19)</div>
+      <ul class="sidebar-topics-list">
+        <li><a href="#u4-web2" class="sidebar-topic-link" data-topic-id="u4-web2"><span class="sidebar-topic-dot"></span><span>1. Web 2.0: Interactive Web</span></a></li>
+        <li><a href="#u4-blogs" class="sidebar-topic-link" data-topic-id="u4-blogs"><span class="sidebar-topic-dot"></span><span>2. Blogs</span></a></li>
+        <li><a href="#u4-wikis" class="sidebar-topic-link" data-topic-id="u4-wikis"><span class="sidebar-topic-dot"></span><span>3. Wikis</span></a></li>
+        <li><a href="#u4-sns" class="sidebar-topic-link" data-topic-id="u4-sns"><span class="sidebar-topic-dot"></span><span>4. Social Networking Sites</span></a></li>
+        <li><a href="#u4-tech-web2" class="sidebar-topic-link" data-topic-id="u4-tech-web2"><span class="sidebar-topic-dot"></span><span>5. Tech Behind Web 2.0</span></a></li>
+        <li><a href="#u4-ajax" class="sidebar-topic-link" data-topic-id="u4-ajax"><span class="sidebar-topic-dot"></span><span>6. AJAX</span></a></li>
+        <li><a href="#u4-rss" class="sidebar-topic-link" data-topic-id="u4-rss"><span class="sidebar-topic-dot"></span><span>7. RSS</span></a></li>
+        <li><a href="#u4-ror" class="sidebar-topic-link" data-topic-id="u4-ror"><span class="sidebar-topic-dot"></span><span>8. Ruby on Rails</span></a></li>
+        <li><a href="#u4-open-apis" class="sidebar-topic-link" data-topic-id="u4-open-apis"><span class="sidebar-topic-dot"></span><span>9. Open APIs</span></a></li>
+        <li><a href="#u4-web3" class="sidebar-topic-link" data-topic-id="u4-web3"><span class="sidebar-topic-dot"></span><span>10. Web 3.0: Semantic Web</span></a></li>
+        <li><a href="#u4-widgets" class="sidebar-topic-link" data-topic-id="u4-widgets"><span class="sidebar-topic-dot"></span><span>11. Widgets</span></a></li>
+        <li><a href="#u4-mashups" class="sidebar-topic-link" data-topic-id="u4-mashups"><span class="sidebar-topic-dot"></span><span>12. Mashups</span></a></li>
+        <li><a href="#u4-rdf" class="sidebar-topic-link" data-topic-id="u4-rdf"><span class="sidebar-topic-dot"></span><span>13. RDF</span></a></li>
+        <li><a href="#u4-wbis" class="sidebar-topic-link" data-topic-id="u4-wbis"><span class="sidebar-topic-dot"></span><span>14. Web-Based Info Systems</span></a></li>
+        <li><a href="#u4-search-engines" class="sidebar-topic-link" data-topic-id="u4-search-engines"><span class="sidebar-topic-dot"></span><span>15. Search Engines</span></a></li>
+        <li><a href="#u4-recommender" class="sidebar-topic-link" data-topic-id="u4-recommender"><span class="sidebar-topic-dot"></span><span>16. Recommender Systems</span></a></li>
+        <li><a href="#u4-blockchain" class="sidebar-topic-link" data-topic-id="u4-blockchain"><span class="sidebar-topic-dot"></span><span>17. Benefits of Blockchain</span></a></li>
+        <li><a href="#u4-edge" class="sidebar-topic-link" data-topic-id="u4-edge"><span class="sidebar-topic-dot"></span><span>18. Edge Computing</span></a></li>
+        <li><a href="#u4-dark-mode" class="sidebar-topic-link" data-topic-id="u4-dark-mode"><span class="sidebar-topic-dot"></span><span>19. Dark Mode in Web Dev</span></a></li>
+        <li><a href="#unit-4-revision" class="sidebar-topic-link"><span class="sidebar-topic-dot"></span><span>★ Quick Revision &amp; FAQ</span></a></li>
+      </ul>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <main id="main-content" class="main-content">
+      <div class="content-container">
+
+        <section class="unit-hero">
+          <div class="unit-hero-top">
+            <div class="unit-hero-badges">
+              <span class="badge-unit">Unit 4</span>
+              <span class="badge-duration">Duration: 7 Hours</span>
+            </div>
+            <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+          </div>
+          <h1>Unit 4 – Web 2.0, Web 3.0 and Modern Web Technologies</h1>
+          <p class="unit-hero-desc">Explore the evolution from static read-only pages to the interactive social web (Web 2.0), the machine-readable Semantic Web (Web 3.0 &amp; RDF), and modern architectures including Search Engines, Recommender Systems, Blockchain, Edge Computing, and Dark Mode.</p>
+          <div class="unit-progress-box">
+            <div class="unit-progress-row">
+              <span id="unit-progress-count">0 / 19 Topics Completed</span>
+              <strong id="unit-progress-percent">0%</strong>
+            </div>
+            <div class="progress-track"><div id="unit-progress-bar" class="progress-fill"></div></div>
+          </div>
+        </section>
+
+        <section class="topic-index-card" aria-label="Unit 4 Topic Index">
+          <h2>Syllabus Topics in Unit 4</h2>
+          <div class="topic-pill-grid">
+            <a href="#u4-web2" class="topic-pill" data-topic-id="u4-web2">1. Web 2.0</a>
+            <a href="#u4-blogs" class="topic-pill" data-topic-id="u4-blogs">2. Blogs</a>
+            <a href="#u4-wikis" class="topic-pill" data-topic-id="u4-wikis">3. Wikis</a>
+            <a href="#u4-sns" class="topic-pill" data-topic-id="u4-sns">4. Social Networking</a>
+            <a href="#u4-tech-web2" class="topic-pill" data-topic-id="u4-tech-web2">5. Web 2.0 Tech</a>
+            <a href="#u4-ajax" class="topic-pill" data-topic-id="u4-ajax">6. AJAX</a>
+            <a href="#u4-rss" class="topic-pill" data-topic-id="u4-rss">7. RSS</a>
+            <a href="#u4-ror" class="topic-pill" data-topic-id="u4-ror">8. Ruby on Rails</a>
+            <a href="#u4-open-apis" class="topic-pill" data-topic-id="u4-open-apis">9. Open APIs</a>
+            <a href="#u4-web3" class="topic-pill" data-topic-id="u4-web3">10. Web 3.0 (Semantic)</a>
+            <a href="#u4-widgets" class="topic-pill" data-topic-id="u4-widgets">11. Widgets</a>
+            <a href="#u4-mashups" class="topic-pill" data-topic-id="u4-mashups">12. Mashups</a>
+            <a href="#u4-rdf" class="topic-pill" data-topic-id="u4-rdf">13. RDF</a>
+            <a href="#u4-wbis" class="topic-pill" data-topic-id="u4-wbis">14. WBIS</a>
+            <a href="#u4-search-engines" class="topic-pill" data-topic-id="u4-search-engines">15. Search Engines</a>
+            <a href="#u4-recommender" class="topic-pill" data-topic-id="u4-recommender">16. Recommenders</a>
+            <a href="#u4-blockchain" class="topic-pill" data-topic-id="u4-blockchain">17. Blockchain</a>
+            <a href="#u4-edge" class="topic-pill" data-topic-id="u4-edge">18. Edge Computing</a>
+            <a href="#u4-dark-mode" class="topic-pill" data-topic-id="u4-dark-mode">19. Dark Mode</a>
+          </div>
+        </section>
+
+        <!-- 4.1 Web 2.0 -->
+        <article id="u4-web2" class="topic-section" data-topic-id="u4-web2">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.1</span><h2>Web 2.0: Interactive and Social Web</h2></div><button type="button" class="complete-btn" data-topic-id="u4-web2" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Web 2.0</strong> refers to the second generation of the World Wide Web characterized by dynamic, participatory, user-generated content, social collaboration, and rich browser-based applications.</p></div>
+            <p>Popularized by Tim O'Reilly (2004), Web 2.0 shifted users from passive readers (Web 1.0) to active creators—commenting, blogging, editing wikis, and sharing media on platforms like Wikipedia, YouTube, and GitHub.</p>
+            <h3>Comparison: Web 1.0 vs. Web 2.0 vs. Web 3.0</h3>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Dimension</th><th>Web 1.0 (Read-Only)</th><th>Web 2.0 (Read-Write)</th><th>Web 3.0 (Semantic / Decentralized)</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Primary Focus</strong></td><td>Static information publishing</td><td>Social interaction &amp; user-generated content</td><td>Machine-readable knowledge (RDF) &amp; decentralization</td></tr>
+                  <tr><td><strong>Content Creation</strong></td><td>Site owners / webmasters</td><td>End users, communities, creators</td><td>Users + AI/semantic agents + linked data</td></tr>
+                  <tr><td><strong>Core Tech</strong></td><td>HTML, HTTP, CGI, static pages</td><td>AJAX, REST, JSON, JavaScript, CMS</td><td>RDF, OWL, SPARQL, Blockchain, Edge AI</td></tr>
+                  <tr><td><strong>Examples</strong></td><td>Early Britannica Online, GeoCities</td><td>Wikipedia, YouTube, Reddit, Facebook</td><td>Wikidata, DBpedia, IPFS, dApps</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><span></span><a href="#u4-blogs">Next: Blogs →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.2 Blogs -->
+        <article id="u4-blogs" class="topic-section" data-topic-id="u4-blogs">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.2</span><h2>Blogs (Weblogs)</h2></div><button type="button" class="complete-btn" data-topic-id="u4-blogs" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Blog</strong> is a frequently updated website or online journal displaying posts in reverse chronological order, typically managed via a Content Management System (CMS) like WordPress or Ghost.</p></div>
+            <p><strong>Key Features:</strong> Permalinks (permanent URLs per post), categories/tags, reader comment threads, and RSS/Atom feeds for syndication. <strong>Applications:</strong> Engineering blogs, personal portfolios, journalism, and product changelogs. <strong>Limitations:</strong> Requires moderation against spam and consistent content upkeep.</p>
+            <div class="topic-nav-bar"><a href="#u4-web2">← Previous: Web 2.0</a><a href="#u4-wikis">Next: Wikis →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.3 Wikis -->
+        <article id="u4-wikis" class="topic-section" data-topic-id="u4-wikis">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.3</span><h2>Wikis</h2></div><button type="button" class="complete-btn" data-topic-id="u4-wikis" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Wiki</strong> is a collaborative web application that allows multiple users to create, edit, link, and maintain shared pages directly in a browser using simplified markup (Wikitext or Markdown).</p></div>
+            <p><strong>Working Mechanism:</strong> Every edit is stored in a <strong>revision history</strong> database, enabling instant rollback if vandalism or errors occur. <strong>Real-world Examples:</strong> Wikipedia (MediaWiki), GitHub Wikis, Confluence. <strong>Advantages:</strong> Rapid crowd-sourced knowledge accumulation; <strong>Limitations:</strong> Susceptible to edit wars or unverified claims without editorial review.</p>
+            <div class="topic-nav-bar"><a href="#u4-blogs">← Previous: Blogs</a><a href="#u4-sns">Next: Social Networking Sites →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.4 Social Networking Sites -->
+        <article id="u4-sns" class="topic-section" data-topic-id="u4-sns">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.4</span><h2>Social Networking Sites (SNS)</h2></div><button type="button" class="complete-btn" data-topic-id="u4-sns" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Social Networking Sites</strong> are online platforms where users build public/semi-public profiles, articulate a <strong>social graph</strong> of connections, and share real-time updates, media, and messages.</p></div>
+            <p><strong>Architecture:</strong> Relies on graph databases or distributed caches for friend/follower relationships, personalized news-feed ranking pipelines, and CDNs for media delivery. <strong>Examples:</strong> LinkedIn, X, Instagram. <strong>Limitations:</strong> Privacy risks, algorithmic echo chambers, and misinformation spread.</p>
+            <div class="topic-nav-bar"><a href="#u4-wikis">← Previous: Wikis</a><a href="#u4-tech-web2">Next: Technologies Behind Web 2.0 →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.5 Technologies Behind Web 2.0 -->
+        <article id="u4-tech-web2" class="topic-section" data-topic-id="u4-tech-web2">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.5</span><h2>Technologies Behind Web 2.0</h2></div><button type="button" class="complete-btn" data-topic-id="u4-tech-web2" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Technologies Behind Web 2.0</strong> encompass the client- and server-side stack—AJAX, RESTful APIs, JSON, DOM scripting, CSS3, and Rich Internet Applications (RIAs)—that make browser apps feel as responsive as desktop software.</p></div>
+            <ul>
+              <li><strong>Asynchronous Data Exchange:</strong> AJAX + JSON replaced heavy full-page reloads.</li>
+              <li><strong>RESTful Web Services:</strong> Lightweight HTTP endpoints returning JSON payloads.</li>
+              <li><strong>Dynamic UI:</strong> JavaScript DOM manipulation paired with CSS3 transitions.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u4-sns">← Previous: Social Networking</a><a href="#u4-ajax">Next: AJAX →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.6 AJAX -->
+        <article id="u4-ajax" class="topic-section" data-topic-id="u4-ajax">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.6</span><h2>AJAX (Role in Web 2.0)</h2></div><button type="button" class="complete-btn" data-topic-id="u4-ajax" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> In Web 2.0, <strong>AJAX</strong> serves as the foundational interaction engine enabling live likes, inline comments, drag-and-drop maps (Google Maps), and real-time search suggestions without interrupting the user's workflow.</p></div>
+            <p><strong>Advantages:</strong> Desktop-like responsiveness and lower server bandwidth. <strong>Limitations:</strong> Requires careful management of browser history (<code>History API</code>), loading states, and SEO crawlability.</p>
+            <div class="topic-nav-bar"><a href="#u4-tech-web2">← Previous: Tech Behind Web 2.0</a><a href="#u4-rss">Next: RSS →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.7 RSS -->
+        <article id="u4-rss" class="topic-section" data-topic-id="u4-rss">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.7</span><h2>RSS (Really Simple Syndication)</h2></div><button type="button" class="complete-btn" data-topic-id="u4-rss" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>RSS</strong> is a standardized XML web feed format that allows publishers to syndicate updates (news articles, blog posts, podcasts) so feed readers and aggregators can fetch them automatically.</p></div>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>feed.xml (RSS 2.0)</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;rss version="2.0"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;CSE Department Notices&lt;/title&gt;
+    &lt;link&gt;https://university.edu/cse&lt;/link&gt;
+    &lt;description&gt;Latest academic announcements&lt;/description&gt;
+    &lt;item&gt;
+      &lt;title&gt;End-Semester Exam Schedule&lt;/title&gt;
+      &lt;link&gt;https://university.edu/cse/exams&lt;/link&gt;
+      &lt;pubDate&gt;Mon, 18 Nov 2026 09:00:00 GMT&lt;/pubDate&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u4-ajax">← Previous: AJAX</a><a href="#u4-ror">Next: Ruby on Rails →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.8 Ruby on Rails -->
+        <article id="u4-ror" class="topic-section" data-topic-id="u4-ror">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.8</span><h2>Ruby on Rails</h2></div><button type="button" class="complete-btn" data-topic-id="u4-ror" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Ruby on Rails (RoR)</strong> is an open-source, server-side web application framework written in Ruby that follows the <strong>Model–View–Controller (MVC)</strong> architectural pattern.</p></div>
+            <ul>
+              <li><strong>Convention over Configuration (CoC):</strong> Sensible defaults eliminate excessive XML/boilerplate config files.</li>
+              <li><strong>DRY (Don't Repeat Yourself):</strong> Every piece of knowledge has a single, unambiguous representation.</li>
+              <li><strong>ActiveRecord ORM:</strong> Maps database tables directly to Ruby classes. <strong>Real-world Examples:</strong> GitHub, Shopify, Airbnb (early architecture).</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u4-rss">← Previous: RSS</a><a href="#u4-open-apis">Next: Open APIs →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.9 Open APIs -->
+        <article id="u4-open-apis" class="topic-section" data-topic-id="u4-open-apis">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.9</span><h2>Open APIs</h2></div><button type="button" class="complete-btn" data-topic-id="u4-open-apis" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> An <strong>Open API</strong> (Public API) is a publicly documented programming interface—typically RESTful JSON over HTTPS—that allows external developers to access a platform's data or services programmatically.</p></div>
+            <p><strong>Working &amp; Security:</strong> Developers authenticate via <strong>API Keys</strong> or <strong>OAuth 2.0</strong> tokens, while providers enforce <strong>rate limiting</strong> and document endpoints using the <strong>OpenAPI Specification (Swagger)</strong>. <strong>Examples:</strong> Google Maps API, Stripe API, GitHub REST API.</p>
+            <div class="topic-nav-bar"><a href="#u4-ror">← Previous: Ruby on Rails</a><a href="#u4-web3">Next: Web 3.0: Semantic Web →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.10 Web 3.0: Semantic Web -->
+        <article id="u4-web3" class="topic-section" data-topic-id="u4-web3">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.10</span><h2>Web 3.0: Semantic Web</h2></div><button type="button" class="complete-btn" data-topic-id="u4-web3" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> Proposed by Tim Berners-Lee, the <strong>Semantic Web (Web 3.0)</strong> extends the Web with standardized metadata so machines can understand the <em>meaning</em> and relationships of data, not just display text.</p></div>
+            <p><strong>Core Stack:</strong> Uses <strong>URIs</strong> for naming, <strong>RDF</strong> for structured triples, <strong>OWL (Web Ontology Language)</strong> for defining domain relationships, and <strong>SPARQL</strong> for querying knowledge graphs (e.g., Wikidata, Schema.org rich snippets in Google Search).</p>
+            <div class="topic-nav-bar"><a href="#u4-open-apis">← Previous: Open APIs</a><a href="#u4-widgets">Next: Widgets →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.11 Widgets -->
+        <article id="u4-widgets" class="topic-section" data-topic-id="u4-widgets">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.11</span><h2>Widgets</h2></div><button type="button" class="complete-btn" data-topic-id="u4-widgets" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A web <strong>Widget</strong> is a portable, self-contained UI component or mini-application (such as a weather ticker, live chat box, or currency converter) that can be embedded into any third-party web page.</p></div>
+            <p>Implemented via <code>&lt;script&gt;</code> embeds, sandboxed <code>&lt;iframe&gt;</code> containers, or modern W3C <strong>Web Components</strong> (Custom Elements + Shadow DOM) to isolate styles from the host page.</p>
+            <div class="topic-nav-bar"><a href="#u4-web3">← Previous: Semantic Web</a><a href="#u4-mashups">Next: Mashups →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.12 Mashups -->
+        <article id="u4-mashups" class="topic-section" data-topic-id="u4-mashups">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.12</span><h2>Mashups</h2></div><button type="button" class="complete-btn" data-topic-id="u4-mashups" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Mashup</strong> is a web application that combines data, presentation, or functionality from two or more external Open APIs to create a new unified service.</p></div>
+            <p><strong>Example:</strong> A real-estate portal combining housing listings from a property database with interactive street maps from Google Maps API and transit schedules from a city Open API. <strong>Limitation:</strong> Dependent on upstream API uptime and licensing terms.</p>
+            <div class="topic-nav-bar"><a href="#u4-widgets">← Previous: Widgets</a><a href="#u4-rdf">Next: RDF →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.13 RDF -->
+        <article id="u4-rdf" class="topic-section" data-topic-id="u4-rdf">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.13</span><h2>RDF (Resource Description Framework)</h2></div><button type="button" class="complete-btn" data-topic-id="u4-rdf" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>RDF</strong> is a W3C data model for representing machine-readable knowledge on the Semantic Web as directed graphs composed of <strong>Subject – Predicate – Object</strong> triples.</p></div>
+            <p>In a triple, the <strong>Subject</strong> is a resource URI, the <strong>Predicate</strong> is a property/relationship URI, and the <strong>Object</strong> is another resource or literal value (e.g., <code>&lt;Tim_Berners-Lee&gt; &lt;invented&gt; &lt;WWW&gt;</code>).</p>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>course.rdf (RDF/XML)</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+  &lt;rdf:Description rdf:about="https://example.edu/courses/webtech"&gt;
+    &lt;dc:title&gt;Web Technology&lt;/dc:title&gt;
+    &lt;dc:creator&gt;Department of CSE&lt;/dc:creator&gt;
+  &lt;/rdf:Description&gt;
+&lt;/rdf:RDF&gt;</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u4-mashups">← Previous: Mashups</a><a href="#u4-wbis">Next: Web-Based Info Systems →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.14 Web-Based Information Systems -->
+        <article id="u4-wbis" class="topic-section" data-topic-id="u4-wbis">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.14</span><h2>Web-Based Information Systems (WBIS)</h2></div><button type="button" class="complete-btn" data-topic-id="u4-wbis" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Web-Based Information System</strong> is an enterprise software system that uses web technologies (browsers, HTTP, application servers, databases) to store, process, and deliver organizational information.</p></div>
+            <p><strong>Architecture:</strong> Typically 3-tier—Presentation Tier (HTML/CSS/JS), Logic Tier (Java/Node/Python/Rails), and Data Tier (SQL/NoSQL). <strong>Examples:</strong> University ERP portals, Hospital Management Systems, Online Banking.</p>
+            <div class="topic-nav-bar"><a href="#u4-rdf">← Previous: RDF</a><a href="#u4-search-engines">Next: Search Engines →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.15 Search Engines -->
+        <article id="u4-search-engines" class="topic-section" data-topic-id="u4-search-engines">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.15</span><h2>Search Engines</h2></div><button type="button" class="complete-btn" data-topic-id="u4-search-engines" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Web Search Engine</strong> is a large-scale information retrieval system that discovers web pages, indexes their content, and ranks relevant results for user queries in milliseconds.</p></div>
+            <div class="diagram-box">
+              <svg viewBox="0 0 660 110" width="620" height="105" role="img" aria-label="Search Engine Pipeline">
+                <rect x="15" y="25" width="135" height="55" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="82" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">1. Web Crawler</text>
+                <text x="82" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">Spidering Links</text>
+
+                <rect x="180" y="25" width="135" height="55" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="2"/>
+                <text x="247" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">2. Indexer</text>
+                <text x="247" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">Inverted Index</text>
+
+                <rect x="345" y="25" width="135" height="55" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="2"/>
+                <text x="412" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">3. Ranker</text>
+                <text x="412" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">PageRank / Relevance</text>
+
+                <rect x="510" y="25" width="135" height="55" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="577" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">4. Query Engine</text>
+                <text x="577" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">SERP Results</text>
+
+                <line x1="150" y1="52" x2="180" y2="52" stroke="#A3B0C7" stroke-width="1.5"/>
+                <line x1="315" y1="52" x2="345" y2="52" stroke="#A3B0C7" stroke-width="1.5"/>
+                <line x1="480" y1="52" x2="510" y2="52" stroke="#A3B0C7" stroke-width="1.5"/>
+              </svg>
+              <div class="diagram-caption">Figure 4.1: Search Engine Crawling, Indexing, and Ranking Pipeline</div>
+            </div>
+            <ul>
+              <li><strong>Crawling:</strong> Automated bots (spiders) follow hyperlinks while respecting <code>robots.txt</code>.</li>
+              <li><strong>Indexing:</strong> Builds an <strong>inverted index</strong> mapping keywords to document IDs and positions.</li>
+              <li><strong>Ranking:</strong> Evaluates authority (e.g., PageRank link analysis), semantic relevance, and page speed.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u4-wbis">← Previous: WBIS</a><a href="#u4-recommender">Next: Recommender Systems →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.16 Recommender Systems -->
+        <article id="u4-recommender" class="topic-section" data-topic-id="u4-recommender">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.16</span><h2>Recommender Systems</h2></div><button type="button" class="complete-btn" data-topic-id="u4-recommender" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Recommender System</strong> is an information-filtering engine that predicts user preferences and suggests relevant items (products, movies, courses) based on user behavior or item attributes.</p></div>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Approach</th><th>How It Works</th><th>Strength / Limitation</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Content-Based Filtering</strong></td><td>Recommends items with attributes similar to items the user liked previously (e.g., genre, tags).</td><td>No cold-start for new items; limited to narrow user history ("filter bubble").</td></tr>
+                  <tr><td><strong>Collaborative Filtering</strong></td><td>Finds users with similar rating/click patterns ("Users who bought X also bought Y").</td><td>Discovers diverse interests; suffers from cold-start when new users/items have zero ratings.</td></tr>
+                  <tr><td><strong>Hybrid Systems</strong></td><td>Combines content features and collaborative user-item matrices (used by Netflix, Amazon, Spotify).</td><td>Higher accuracy and resilience against cold-start.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><a href="#u4-search-engines">← Previous: Search Engines</a><a href="#u4-blockchain">Next: Benefits of Blockchain →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.17 Benefits of Blockchain -->
+        <article id="u4-blockchain" class="topic-section" data-topic-id="u4-blockchain">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.17</span><h2>Benefits of Blockchain</h2></div><button type="button" class="complete-btn" data-topic-id="u4-blockchain" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> A <strong>Blockchain</strong> is a distributed, append-only digital ledger where verified transactions are grouped into cryptographic <strong>blocks</strong>, linked sequentially via hash pointers, and maintained across peer nodes via a <strong>consensus mechanism</strong>.</p></div>
+            <h3>Core Concepts &amp; Benefits</h3>
+            <ul>
+              <li><strong>Decentralization:</strong> Eliminates single points of failure and central intermediaries.</li>
+              <li><strong>Immutability &amp; Tamper Resistance:</strong> Altering any historical transaction invalidates its cryptographic hash and all subsequent blocks.</li>
+              <li><strong>Transparency &amp; Auditability:</strong> Participants can independently verify transactions on shared ledgers.</li>
+              <li><strong>Consensus Mechanisms:</strong> Proof of Work (PoW) or Proof of Stake (PoS) ensure distributed agreement without a central authority.</li>
+            </ul>
+            <p><strong>Limitations:</strong> Lower transaction throughput than centralized databases, storage growth, and energy/cost trade-offs depending on consensus.</p>
+            <div class="topic-nav-bar"><a href="#u4-recommender">← Previous: Recommender Systems</a><a href="#u4-edge">Next: Edge Computing →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.18 Edge Computing -->
+        <article id="u4-edge" class="topic-section" data-topic-id="u4-edge">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.18</span><h2>Edge Computing</h2></div><button type="button" class="complete-btn" data-topic-id="u4-edge" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Edge Computing</strong> processes data and executes web logic close to the physical source of data or end user (at CDN edge nodes, ISP gateways, or local devices) rather than routing every request to a distant centralized cloud data center.</p></div>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Feature</th><th>Cloud Computing</th><th>Edge Computing</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Location</strong></td><td>Centralized regional data centers</td><td>Distributed nodes near users/IoT devices</td></tr>
+                  <tr><td><strong>Latency</strong></td><td>Higher (tens to hundreds of ms)</td><td>Ultra-low (single-digit ms)</td></tr>
+                  <tr><td><strong>Bandwidth Usage</strong></td><td>All raw data sent to cloud</td><td>Filtered/processed locally; less backhaul traffic</td></tr>
+                  <tr><td><strong>Use Cases</strong></td><td>Heavy ML training, large data warehouses</td><td>CDN caching, Edge Functions, real-time IoT alerts</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><a href="#u4-blockchain">← Previous: Benefits of Blockchain</a><a href="#u4-dark-mode">Next: Dark Mode in Web Dev →</a></div>
+          </div>
+        </article>
+
+        <!-- 4.19 Dark Mode in Web Development -->
+        <article id="u4-dark-mode" class="topic-section" data-topic-id="u4-dark-mode">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 4.19</span><h2>Dark Mode in Web Development</h2></div><button type="button" class="complete-btn" data-topic-id="u4-dark-mode" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Dark Mode</strong> is a UI color scheme that displays light-colored text and controls on dark backgrounds, reducing eye strain in low-light environments and saving power on OLED/AMOLED displays.</p></div>
+            <h3>Implementation with CSS Variables &amp; <code>prefers-color-scheme</code></h3>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>dark-mode.css</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>:root {
+  --bg: #ffffff;
+  --text: #111827;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1020;
+    --text: #f1f5ff;
+  }
+}
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --text: #f1f5ff;
+}
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}</code></pre>
+            </div>
+            <p><strong>Best Practices:</strong> Avoid pure <code>#000000</code> with pure <code>#FFFFFF</code> (can cause halation); use deep slate/navy surfaces like <code>#0B1020</code> and maintain WCAG ≥4.5:1 text contrast.</p>
+            <div class="topic-nav-bar"><a href="#u4-edge">← Previous: Edge Computing</a><a href="#unit-4-revision">Next: Quick Revision &amp; FAQ →</a></div>
+          </div>
+        </article>
+
+        <!-- UNIT 4 QUICK REVISION -->
+        <section id="unit-4-revision" class="revision-section" aria-labelledby="u4-rev-title">
+          <h2 id="u4-rev-title">Unit 4 – Quick Revision &amp; Exam Prep</h2>
+          <div class="revision-grid">
+            <div class="revision-card">
+              <h3>Important Definitions</h3>
+              <ul>
+                <li><strong>Web 2.0:</strong> Participatory social web (UGC, AJAX, REST).</li>
+                <li><strong>RDF Triple:</strong> Subject – Predicate – Object graph statement.</li>
+                <li><strong>Inverted Index:</strong> Maps words → list of documents for fast search.</li>
+                <li><strong>Edge Computing:</strong> Computation near users to minimize latency.</li>
+              </ul>
+            </div>
+            <div class="revision-card">
+              <h3>Key Differences</h3>
+              <ul>
+                <li><strong>Content-Based vs. Collaborative:</strong> Item similarity vs. user behavior similarity.</li>
+                <li><strong>Cloud vs. Edge:</strong> Centralized high-compute vs. distributed low-latency.</li>
+                <li><strong>Widget vs. Mashup:</strong> Single embeddable UI piece vs. multi-API combined app.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <h3 style="font-size:1rem;margin-bottom:8px;">Frequently Asked Exam Questions</h3>
+            <div class="faq-item">
+              <div class="faq-question">Q1. What are the two core design principles of Ruby on Rails?</div>
+              <div class="faq-answer"><strong>Convention over Configuration (CoC)</strong> and <strong>Don't Repeat Yourself (DRY)</strong>, built around the MVC architecture.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q2. What is the "cold-start problem" in Recommender Systems?</div>
+              <div class="faq-answer">It occurs when a new user or new item has insufficient interaction history, making it difficult for collaborative filtering to generate accurate recommendations.</div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="unit-pagination" aria-label="Unit Pagination">
+          <a href="unit-3.html" class="btn btn-secondary">← Previous: Unit 3</a>
+          <a href="unit-5.html" class="btn btn-primary">Next: Unit 5 – Web 4.0 &amp; Emerging →</a>
+        </nav>
+
+        <footer class="site-footer">
+          <span>Unit 4 – Web 2.0, Web 3.0 and Modern Web Technologies</span>
+          <span>Web Technology – The Complete Learning Library</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/syllabus-data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

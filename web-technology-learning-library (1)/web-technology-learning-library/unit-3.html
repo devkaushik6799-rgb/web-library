@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unit 3 – Web Services and Distributed Web Technologies: Introduction to Web Services, UDDI, SOAP, WSDL, Architecture, Developing & Deploying, AJAX, and CORBA.">
+  <title>Unit 3 – Web Services and Distributed Web Technologies | Web Technology Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/units.css">
+</head>
+<body data-unit-id="3">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.svg" alt="Web Technology Library Logo" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-title">Web Technology</span>
+          <span class="brand-subtitle">The Complete Learning Library</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="index.html" class="header-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Dashboard</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-search" role="search">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="global-search-input" class="search-input" type="search" placeholder="Search all 63 syllabus topics..." aria-label="Search syllabus topics" autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown" role="region" aria-label="Search results"></div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-progress-pill" title="Overall Syllabus Completion">
+        <span>Overall:</span>
+        <strong id="header-progress-percent">0%</strong>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch to light theme">
+        <span aria-hidden="true">☀️</span> <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside id="site-sidebar" class="sidebar" aria-label="Course and Unit Navigation">
+      <div class="sidebar-section-label">Library Navigation</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="index.html" class="sidebar-link"><span>← Back to Dashboard</span><span class="sidebar-unit-badge">Home</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">All Units</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="unit-1.html" class="sidebar-link"><span>1. Internet &amp; Web Arch</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-2.html" class="sidebar-link"><span>2. HTML, CSS, JS &amp; XML</span><span class="sidebar-unit-badge">8h</span></a></li>
+        <li><a href="unit-3.html" class="sidebar-link active"><span>3. Web Services &amp; AJAX</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-4.html" class="sidebar-link"><span>4. Web 2.0, 3.0 &amp; Modern</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-5.html" class="sidebar-link"><span>5. Web 4.0 &amp; Emerging</span><span class="sidebar-unit-badge">7h</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">Unit 3 Topics (9)</div>
+      <ul class="sidebar-topics-list">
+        <li><a href="#u3-intro" class="sidebar-topic-link" data-topic-id="u3-intro"><span class="sidebar-topic-dot"></span><span>1. Intro to Web Services</span></a></li>
+        <li><a href="#u3-uddi" class="sidebar-topic-link" data-topic-id="u3-uddi"><span class="sidebar-topic-dot"></span><span>2. UDDI</span></a></li>
+        <li><a href="#u3-soap" class="sidebar-topic-link" data-topic-id="u3-soap"><span class="sidebar-topic-dot"></span><span>3. SOAP</span></a></li>
+        <li><a href="#u3-wsdl" class="sidebar-topic-link" data-topic-id="u3-wsdl"><span class="sidebar-topic-dot"></span><span>4. WSDL</span></a></li>
+        <li><a href="#u3-architecture" class="sidebar-topic-link" data-topic-id="u3-architecture"><span class="sidebar-topic-dot"></span><span>5. Web Service Architecture</span></a></li>
+        <li><a href="#u3-developing" class="sidebar-topic-link" data-topic-id="u3-developing"><span class="sidebar-topic-dot"></span><span>6. Developing &amp; Deploying</span></a></li>
+        <li><a href="#u3-ajax-perf" class="sidebar-topic-link" data-topic-id="u3-ajax-perf"><span class="sidebar-topic-dot"></span><span>7. AJAX Performance</span></a></li>
+        <li><a href="#u3-ajax-prog" class="sidebar-topic-link" data-topic-id="u3-ajax-prog"><span class="sidebar-topic-dot"></span><span>8. Programming in AJAX</span></a></li>
+        <li><a href="#u3-corba" class="sidebar-topic-link" data-topic-id="u3-corba"><span class="sidebar-topic-dot"></span><span>9. CORBA</span></a></li>
+        <li><a href="#unit-3-revision" class="sidebar-topic-link"><span class="sidebar-topic-dot"></span><span>★ Quick Revision &amp; FAQ</span></a></li>
+      </ul>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <main id="main-content" class="main-content">
+      <div class="content-container">
+
+        <section class="unit-hero">
+          <div class="unit-hero-top">
+            <div class="unit-hero-badges">
+              <span class="badge-unit">Unit 3</span>
+              <span class="badge-duration">Duration: 7 Hours</span>
+            </div>
+            <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+          </div>
+          <h1>Unit 3 – Web Services and Distributed Web Technologies</h1>
+          <p class="unit-hero-desc">Understand interoperable distributed systems: Service-Oriented Architecture (SOA), UDDI service discovery, SOAP XML messaging, WSDL service contracts, asynchronous client-server communication with AJAX (XHR &amp; Fetch API), and CORBA distributed objects.</p>
+          <div class="unit-progress-box">
+            <div class="unit-progress-row">
+              <span id="unit-progress-count">0 / 9 Topics Completed</span>
+              <strong id="unit-progress-percent">0%</strong>
+            </div>
+            <div class="progress-track"><div id="unit-progress-bar" class="progress-fill"></div></div>
+          </div>
+        </section>
+
+        <section class="topic-index-card" aria-label="Unit 3 Topic Index">
+          <h2>Syllabus Topics in Unit 3</h2>
+          <div class="topic-pill-grid">
+            <a href="#u3-intro" class="topic-pill" data-topic-id="u3-intro">1. Intro to Web Services</a>
+            <a href="#u3-uddi" class="topic-pill" data-topic-id="u3-uddi">2. UDDI</a>
+            <a href="#u3-soap" class="topic-pill" data-topic-id="u3-soap">3. SOAP</a>
+            <a href="#u3-wsdl" class="topic-pill" data-topic-id="u3-wsdl">4. WSDL</a>
+            <a href="#u3-architecture" class="topic-pill" data-topic-id="u3-architecture">5. Web Service Architecture</a>
+            <a href="#u3-developing" class="topic-pill" data-topic-id="u3-developing">6. Developing &amp; Deploying</a>
+            <a href="#u3-ajax-perf" class="topic-pill" data-topic-id="u3-ajax-perf">7. AJAX Performance</a>
+            <a href="#u3-ajax-prog" class="topic-pill" data-topic-id="u3-ajax-prog">8. Programming in AJAX</a>
+            <a href="#u3-corba" class="topic-pill" data-topic-id="u3-corba">9. CORBA</a>
+          </div>
+        </section>
+
+        <!-- 3.1 Introduction to Web Services -->
+        <article id="u3-intro" class="topic-section" data-topic-id="u3-intro">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.1</span><h2>Introduction to Web Services</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-intro" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> A <strong>Web Service</strong> is a standardized, self-contained software component exposed over a network (usually HTTP/HTTPS) that enables machine-to-machine communication regardless of programming language, operating system, or hardware platform.</p>
+            </div>
+            <h3>Purpose &amp; Key Characteristics</h3>
+            <ul>
+              <li><strong>Interoperability:</strong> A Python client can invoke a Java or .NET web service seamlessly using open standards (XML/JSON over HTTP).</li>
+              <li><strong>Loose Coupling:</strong> Clients depend only on the service contract, not on internal implementation details.</li>
+              <li><strong>Discoverability &amp; Reusability:</strong> Services can be published to registries and reused across multiple applications (payment gateways, weather APIs, flight booking).</li>
+            </ul>
+            <h3>Advantages &amp; Limitations</h3>
+            <p><strong>Advantages:</strong> Cross-platform integration, firewall-friendly HTTP transport, and modular Service-Oriented Architecture (SOA). <strong>Limitations:</strong> Network latency, XML serialization overhead (in SOAP), and added security surface.</p>
+            <div class="topic-nav-bar"><span></span><a href="#u3-uddi">Next: UDDI →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.2 UDDI -->
+        <article id="u3-uddi" class="topic-section" data-topic-id="u3-uddi">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.2</span><h2>UDDI (Universal Description, Discovery, and Integration)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-uddi" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>UDDI</strong> is an XML-based directory standard that acts as a searchable registry where businesses publish their Web Services and clients discover them dynamically.</p>
+            </div>
+            <h3>Three Components of a UDDI Registry</h3>
+            <ul>
+              <li><strong>White Pages:</strong> Business name, address, contact information, and identifiers.</li>
+              <li><strong>Yellow Pages:</strong> Categorization of services by industry, product, or geography (using standard taxonomies).</li>
+              <li><strong>Green Pages:</strong> Technical details—binding endpoints, supported protocols, and pointers to WSDL files.</li>
+            </ul>
+            <h3>Working Mechanism</h3>
+            <p>1. <strong>Publish:</strong> Service Provider registers its business entity and WSDL URL in the UDDI registry. 2. <strong>Find:</strong> Service Requester queries UDDI by category or name to obtain the WSDL location. 3. <strong>Bind:</strong> Requester reads the WSDL and invokes the provider directly.</p>
+            <div class="topic-nav-bar"><a href="#u3-intro">← Previous: Intro to Web Services</a><a href="#u3-soap">Next: SOAP →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.3 SOAP -->
+        <article id="u3-soap" class="topic-section" data-topic-id="u3-soap">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.3</span><h2>SOAP (Simple Object Access Protocol)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-soap" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>SOAP</strong> is a strict, XML-based messaging protocol for exchanging structured information in decentralized, distributed environments, typically transported over HTTP or SMTP.</p>
+            </div>
+            <h3>SOAP Message Structure</h3>
+            <ul>
+              <li><code>&lt;soap:Envelope&gt;</code> (Mandatory): Root element identifying the XML document as a SOAP message.</li>
+              <li><code>&lt;soap:Header&gt;</code> (Optional): Carries metadata such as authentication tokens, transaction IDs, or routing rules.</li>
+              <li><code>&lt;soap:Body&gt;</code> (Mandatory): Contains the actual RPC call, parameters, or response payload.</li>
+              <li><code>&lt;soap:Fault&gt;</code> (Optional, inside Body): Reports error codes and diagnostic messages if processing fails.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>soap-request.xml</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;?xml version="1.0"?&gt;
+&lt;soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"&gt;
+  &lt;soap:Header&gt;
+    &lt;auth:Token xmlns:auth="http://example.edu/auth"&gt;XYZ-9912&lt;/auth:Token&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;m:GetStudentResult xmlns:m="http://example.edu/results"&gt;
+      &lt;m:RollNumber&gt;2026CS101&lt;/m:RollNumber&gt;
+    &lt;/m:GetStudentResult&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+            </div>
+            <p><strong>Advantages:</strong> Built-in WS-Security, ACID transactions, language/transport independence. <strong>Limitations:</strong> Verbose XML payloads and higher parsing overhead than REST/JSON.</p>
+            <div class="topic-nav-bar"><a href="#u3-uddi">← Previous: UDDI</a><a href="#u3-wsdl">Next: WSDL →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.4 WSDL -->
+        <article id="u3-wsdl" class="topic-section" data-topic-id="u3-wsdl">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.4</span><h2>WSDL (Web Services Description Language)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-wsdl" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>WSDL</strong> is an XML-based interface definition language that describes the exact functionality offered by a SOAP web service—what operations exist, what parameters they expect, and the network URL where they can be invoked.</p>
+            </div>
+            <h3>Important WSDL Elements</h3>
+            <ul>
+              <li><code>&lt;types&gt;</code>: Defines XML Schema (XSD) data types used in messages.</li>
+              <li><code>&lt;message&gt;</code>: Abstractly defines input and output data parts for an operation.</li>
+              <li><code>&lt;portType&gt;</code> (<code>&lt;interface&gt;</code> in WSDL 2.0): Groups abstract operations (like a Java interface).</li>
+              <li><code>&lt;binding&gt;</code>: Specifies concrete protocol (SOAP over HTTP) and data encoding format.</li>
+              <li><code>&lt;service&gt;</code>: Associates bindings with physical network endpoint URLs (<code>&lt;port&gt;</code>).</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>result-service.wsdl (Excerpt)</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;definitions name="ResultService" targetNamespace="http://example.edu/results"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"&gt;
+  &lt;message name="GetResultRequest"&gt;&lt;part name="roll" type="xsd:string"/&gt;&lt;/message&gt;
+  &lt;message name="GetResultResponse"&gt;&lt;part name="cgpa" type="xsd:float"/&gt;&lt;/message&gt;
+  &lt;portType name="ResultPortType"&gt;
+    &lt;operation name="GetStudentResult"&gt;
+      &lt;input message="tns:GetResultRequest"/&gt;
+      &lt;output message="tns:GetResultResponse"/&gt;
+    &lt;/operation&gt;
+  &lt;/portType&gt;
+  &lt;service name="ResultService"&gt;
+    &lt;port name="ResultPort" binding="tns:ResultSoapBinding"&gt;
+      &lt;soap:address location="https://example.edu/soap/results"/&gt;
+    &lt;/port&gt;
+  &lt;/service&gt;
+&lt;/definitions&gt;</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u3-soap">← Previous: SOAP</a><a href="#u3-architecture">Next: Web Service Architecture →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.5 Web Service Architecture -->
+        <article id="u3-architecture" class="topic-section" data-topic-id="u3-architecture">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.5</span><h2>Web Service Architecture</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-architecture" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>Web Service Architecture</strong> follows the Service-Oriented Architecture (SOA) triangle comprising three roles—<strong>Service Provider</strong>, <strong>Service Requester</strong>, and <strong>Service Registry</strong>—interacting via Publish, Find, and Bind operations.</p>
+            </div>
+            <div class="diagram-box">
+              <svg viewBox="0 0 640 240" width="600" height="230" role="img" aria-label="SOA Web Service Architecture Triangle">
+                <rect x="220" y="15" width="200" height="55" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="2"/>
+                <text x="320" y="40" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">Service Registry (UDDI)</text>
+                <text x="320" y="58" fill="#A3B0C7" font-size="10" text-anchor="middle">Directory of WSDL Contracts</text>
+
+                <rect x="20" y="160" width="200" height="60" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="120" y="186" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">Service Requester</text>
+                <text x="120" y="204" fill="#A3B0C7" font-size="10" text-anchor="middle">Client Application</text>
+
+                <rect x="420" y="160" width="200" height="60" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="2"/>
+                <text x="520" y="186" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">Service Provider</text>
+                <text x="520" y="204" fill="#A3B0C7" font-size="10" text-anchor="middle">Hosts Service &amp; WSDL</text>
+
+                <line x1="500" y1="158" x2="380" y2="72" stroke="#55D6BE" stroke-width="2"/>
+                <text x="468" y="110" fill="#55D6BE" font-size="11" font-weight="700">1. Publish</text>
+
+                <line x1="140" y1="158" x2="260" y2="72" stroke="#F5B971" stroke-width="2"/>
+                <text x="148" y="110" fill="#F5B971" font-size="11" font-weight="700">2. Find (UDDI)</text>
+
+                <line x1="222" y1="190" x2="418" y2="190" stroke="#7898FF" stroke-width="2"/>
+                <text x="320" y="180" fill="#7898FF" font-size="11" font-weight="700" text-anchor="middle">3. Bind &amp; Invoke (SOAP / HTTP)</text>
+              </svg>
+              <div class="diagram-caption">Figure 3.1: SOA Publish–Find–Bind Web Service Triangle</div>
+            </div>
+            <h3>Protocol Stack</h3>
+            <p>From bottom to top: <strong>Transport</strong> (HTTP, SMTP) → <strong>Messaging</strong> (SOAP / XML) → <strong>Description</strong> (WSDL) → <strong>Discovery</strong> (UDDI).</p>
+            <div class="topic-nav-bar"><a href="#u3-wsdl">← Previous: WSDL</a><a href="#u3-developing">Next: Developing &amp; Deploying →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.6 Developing and Deploying Web Services -->
+        <article id="u3-developing" class="topic-section" data-topic-id="u3-developing">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.6</span><h2>Developing and Deploying Web Services</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-developing" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>Developing and Deploying Web Services</strong> is the engineering lifecycle of designing a service contract, implementing business logic, packaging the service for an application server, and exposing its endpoint for client consumption.</p>
+            </div>
+            <h3>Two Development Approaches</h3>
+            <ul>
+              <li><strong>Top-Down (Contract-First):</strong> Write the WSDL and XSD first, then generate server stubs and client proxies from the contract (ensures strict interoperability).</li>
+              <li><strong>Bottom-Up (Code-First):</strong> Write application classes (e.g., Java JAX-WS or Python/Node handlers) and let the framework auto-generate the WSDL or OpenAPI spec.</li>
+            </ul>
+            <h3>Deployment Lifecycle</h3>
+            <ol>
+              <li>Define operations and data models.</li>
+              <li>Implement service logic and exception/fault handling.</li>
+              <li>Package (e.g., WAR/JAR or Docker container) and deploy to a web/application server (Tomcat, WildFly, Nginx + Node).</li>
+              <li>Test endpoints with tools like SoapUI, Postman, or <code>curl</code>, then publish WSDL/docs.</li>
+            </ol>
+            <div class="topic-nav-bar"><a href="#u3-architecture">← Previous: Architecture</a><a href="#u3-ajax-perf">Next: AJAX Performance →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.7 AJAX Performance -->
+        <article id="u3-ajax-perf" class="topic-section" data-topic-id="u3-ajax-perf">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.7</span><h2>AJAX – Improving Web Page Performance Using AJAX</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-ajax-perf" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>AJAX (Asynchronous JavaScript and XML)</strong> is a client-side web technique that exchanges small payloads (JSON/XML/HTML) with a server in the background and updates parts of a web page without a full page reload.</p>
+            </div>
+            <h3>Traditional Synchronous Model vs. Asynchronous AJAX</h3>
+            <div class="diagram-box">
+              <svg viewBox="0 0 660 170" width="620" height="160" role="img" aria-label="Synchronous vs AJAX Diagram">
+                <rect x="15" y="15" width="300" height="140" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="1.5"/>
+                <text x="165" y="38" fill="#F5B971" font-size="12" font-weight="700" text-anchor="middle">Traditional Synchronous Model</text>
+                <text x="165" y="65" fill="#A3B0C7" font-size="11" text-anchor="middle">1. User clicks → Full HTTP Request</text>
+                <text x="165" y="90" fill="#A3B0C7" font-size="11" text-anchor="middle">2. Browser freezes / waits for server</text>
+                <text x="165" y="115" fill="#A3B0C7" font-size="11" text-anchor="middle">3. Server returns entire new HTML page</text>
+                <text x="165" y="138" fill="#FF7B89" font-size="11" font-weight="600" text-anchor="middle">High bandwidth &amp; full screen flicker</text>
+
+                <rect x="345" y="15" width="300" height="140" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="1.5"/>
+                <text x="495" y="38" fill="#55D6BE" font-size="12" font-weight="700" text-anchor="middle">Asynchronous AJAX Model</text>
+                <text x="495" y="65" fill="#A3B0C7" font-size="11" text-anchor="middle">1. JS sends background HTTP request</text>
+                <text x="495" y="90" fill="#A3B0C7" font-size="11" text-anchor="middle">2. User keeps interacting seamlessly</text>
+                <text x="495" y="115" fill="#A3B0C7" font-size="11" text-anchor="middle">3. Server sends tiny JSON/XML payload</text>
+                <text x="495" y="138" fill="#55D6BE" font-size="11" font-weight="600" text-anchor="middle">DOM updates only changed section</text>
+              </svg>
+              <div class="diagram-caption">Figure 3.2: How AJAX Eliminates Full-Page Reloads and Reduces Bandwidth</div>
+            </div>
+            <ul>
+              <li><strong>Performance Gains:</strong> Reduced server bandwidth (no re-sending headers, CSS, or navbars), faster perceived responsiveness, and non-blocking UI.</li>
+              <li><strong>Applications:</strong> Live search autocomplete, infinite scrolling, form username availability checks, and real-time dashboards.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u3-developing">← Previous: Developing &amp; Deploying</a><a href="#u3-ajax-prog">Next: Programming in AJAX →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.8 Programming in AJAX -->
+        <article id="u3-ajax-prog" class="topic-section" data-topic-id="u3-ajax-prog">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.8</span><h2>Programming in AJAX</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-ajax-prog" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>Programming in AJAX</strong> involves initiating asynchronous HTTP calls from JavaScript using either the classic <code>XMLHttpRequest</code> (XHR) object or the modern Promise-based <code>Fetch API</code>, then updating the DOM with the response.</p>
+            </div>
+            <h3>1. Classic <code>XMLHttpRequest</code> &amp; <code>readyState</code> Values</h3>
+            <p><code>readyState</code> progresses from <code>0</code> (UNSENT) → <code>1</code> (OPENED) → <code>2</code> (HEADERS_RECEIVED) → <code>3</code> (LOADING) → <code>4</code> (DONE). When <code>readyState === 4</code> and <code>status === 200</code>, the response is ready.</p>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>ajax-xhr.js</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>const xhr = new XMLHttpRequest();
+xhr.open("GET", "/api/notices.json", true); // true = asynchronous
+xhr.onreadystatechange = function () {
+  if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+    const notices = JSON.parse(xhr.responseText);
+    document.getElementById("notice-box").textContent = notices[0].title;
+  }
+};
+xhr.send();</code></pre>
+            </div>
+            <h3>2. Modern <code>Fetch API</code> with <code>async / await</code></h3>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>ajax-fetch.js</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>async function loadStudentProfile(rollNo) {
+  try {
+    const response = await fetch(`/api/students/${rollNo}`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    document.getElementById("student-name").textContent = data.name;
+  } catch (err) {
+    console.error("AJAX error:", err);
+  }
+}</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u3-ajax-perf">← Previous: AJAX Performance</a><a href="#u3-corba">Next: CORBA →</a></div>
+          </div>
+        </article>
+
+        <!-- 3.9 CORBA -->
+        <article id="u3-corba" class="topic-section" data-topic-id="u3-corba">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 3.9</span><h2>CORBA (Common Object Request Broker Architecture)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u3-corba" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>CORBA</strong>, standardized by the Object Management Group (OMG), is a distributed object middleware architecture that allows objects written in different languages (C++, Java, Python) to invoke methods on each other across a network.</p>
+            </div>
+            <h3>Key Components &amp; Communication</h3>
+            <ul>
+              <li><strong>ORB (Object Request Broker):</strong> The central middleware bus that locates remote objects, marshals parameters, and routes method calls.</li>
+              <li><strong>IDL (Interface Definition Language):</strong> Language-neutral syntax defining object interfaces; compiled into client <strong>Stubs</strong> and server <strong>Skeletons</strong>.</li>
+              <li><strong>IIOP (Internet Inter-ORB Protocol):</strong> Binary TCP/IP protocol enabling ORBs from different vendors to communicate.</li>
+            </ul>
+            <h3>Comparison: CORBA vs. Web Services</h3>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Feature</th><th>CORBA</th><th>Web Services (SOAP / REST)</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Protocol</strong></td><td>Binary IIOP (often blocked by firewalls)</td><td>Text/JSON/XML over HTTP/HTTPS (firewall-friendly)</td></tr>
+                  <tr><td><strong>Interface Definition</strong></td><td>OMG IDL</td><td>WSDL (for SOAP) / OpenAPI (for REST)</td></tr>
+                  <tr><td><strong>Coupling</strong></td><td>Tightly coupled distributed object references</td><td>Loosely coupled message/resource exchange</td></tr>
+                  <tr><td><strong>Performance</strong></td><td>Very fast binary serialization on LANs</td><td>Higher text parsing overhead, scales on the open Web</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><a href="#u3-ajax-prog">← Previous: Programming in AJAX</a><a href="#unit-3-revision">Next: Quick Revision &amp; FAQ →</a></div>
+          </div>
+        </article>
+
+        <!-- UNIT 3 QUICK REVISION -->
+        <section id="unit-3-revision" class="revision-section" aria-labelledby="u3-rev-title">
+          <h2 id="u3-rev-title">Unit 3 – Quick Revision &amp; Exam Prep</h2>
+          <div class="revision-grid">
+            <div class="revision-card">
+              <h3>Important Definitions</h3>
+              <ul>
+                <li><strong>UDDI:</strong> Registry for publishing/discovering Web Services (White, Yellow, Green pages).</li>
+                <li><strong>SOAP:</strong> XML messaging protocol (Envelope, Header, Body, Fault).</li>
+                <li><strong>WSDL:</strong> XML service contract describing operations and endpoints.</li>
+                <li><strong>CORBA ORB:</strong> Middleware routing remote object method calls via IIOP.</li>
+              </ul>
+            </div>
+            <div class="revision-card">
+              <h3>Key Differences</h3>
+              <ul>
+                <li><strong>XHR vs. Fetch API:</strong> Callback/event-based vs. modern Promise/<code>async-await</code>.</li>
+                <li><strong>Top-Down vs. Bottom-Up:</strong> WSDL-first vs. Code-first service creation.</li>
+                <li><strong>CORBA vs. Web Services:</strong> Binary IIOP tight coupling vs. HTTP loose coupling.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <h3 style="font-size:1rem;margin-bottom:8px;">Frequently Asked Exam Questions</h3>
+            <div class="faq-item">
+              <div class="faq-question">Q1. What are the three roles in Web Service Architecture?</div>
+              <div class="faq-answer">Service Provider (creates and hosts the service), Service Registry (UDDI directory storing WSDL references), and Service Requester (client discovering and binding to the service).</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q2. What does readyState === 4 and status === 200 signify in XMLHttpRequest?</div>
+              <div class="faq-answer"><code>readyState === 4</code> means the request is complete and the full response has arrived; <code>status === 200</code> confirms the HTTP server returned <code>200 OK</code>.</div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="unit-pagination" aria-label="Unit Pagination">
+          <a href="unit-2.html" class="btn btn-secondary">← Previous: Unit 2</a>
+          <a href="unit-4.html" class="btn btn-primary">Next: Unit 4 – Web 2.0, 3.0 &amp; Modern →</a>
+        </nav>
+
+        <footer class="site-footer">
+          <span>Unit 3 – Web Services and Distributed Web Technologies</span>
+          <span>Web Technology – The Complete Learning Library</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/syllabus-data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

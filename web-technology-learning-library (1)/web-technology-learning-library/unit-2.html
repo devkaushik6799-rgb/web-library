@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unit 2 – HTML, CSS, JavaScript and XML: Lists, Tables, Images, Forms, Frames, CSS, Dynamic HTML, DTD, XML Schemas, Object Models, Presenting XML, XML Processors, DOM, and SAX.">
+  <title>Unit 2 – HTML, CSS, JavaScript and XML | Web Technology Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/units.css">
+</head>
+<body data-unit-id="2">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.svg" alt="Web Technology Library Logo" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-title">Web Technology</span>
+          <span class="brand-subtitle">The Complete Learning Library</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="index.html" class="header-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Dashboard</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-search" role="search">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="global-search-input" class="search-input" type="search" placeholder="Search all 63 syllabus topics..." aria-label="Search syllabus topics" autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown" role="region" aria-label="Search results"></div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-progress-pill" title="Overall Syllabus Completion">
+        <span>Overall:</span>
+        <strong id="header-progress-percent">0%</strong>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch to light theme">
+        <span aria-hidden="true">☀️</span> <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside id="site-sidebar" class="sidebar" aria-label="Course and Unit Navigation">
+      <div class="sidebar-section-label">Library Navigation</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="index.html" class="sidebar-link"><span>← Back to Dashboard</span><span class="sidebar-unit-badge">Home</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">All Units</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="unit-1.html" class="sidebar-link"><span>1. Internet &amp; Web Arch</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-2.html" class="sidebar-link active"><span>2. HTML, CSS, JS &amp; XML</span><span class="sidebar-unit-badge">8h</span></a></li>
+        <li><a href="unit-3.html" class="sidebar-link"><span>3. Web Services &amp; AJAX</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-4.html" class="sidebar-link"><span>4. Web 2.0, 3.0 &amp; Modern</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-5.html" class="sidebar-link"><span>5. Web 4.0 &amp; Emerging</span><span class="sidebar-unit-badge">7h</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">Unit 2 Topics (15)</div>
+      <ul class="sidebar-topics-list">
+        <li><a href="#u2-lists" class="sidebar-topic-link" data-topic-id="u2-lists"><span class="sidebar-topic-dot"></span><span>1. Lists</span></a></li>
+        <li><a href="#u2-tables" class="sidebar-topic-link" data-topic-id="u2-tables"><span class="sidebar-topic-dot"></span><span>2. Tables</span></a></li>
+        <li><a href="#u2-images" class="sidebar-topic-link" data-topic-id="u2-images"><span class="sidebar-topic-dot"></span><span>3. Images</span></a></li>
+        <li><a href="#u2-forms" class="sidebar-topic-link" data-topic-id="u2-forms"><span class="sidebar-topic-dot"></span><span>4. Forms</span></a></li>
+        <li><a href="#u2-frames" class="sidebar-topic-link" data-topic-id="u2-frames"><span class="sidebar-topic-dot"></span><span>5. Frames</span></a></li>
+        <li><a href="#u2-dhtml-js" class="sidebar-topic-link" data-topic-id="u2-dhtml-js"><span class="sidebar-topic-dot"></span><span>6. Dynamic HTML with JS</span></a></li>
+        <li><a href="#u2-css" class="sidebar-topic-link" data-topic-id="u2-css"><span class="sidebar-topic-dot"></span><span>7. CSS</span></a></li>
+        <li><a href="#u2-dtd" class="sidebar-topic-link" data-topic-id="u2-dtd"><span class="sidebar-topic-dot"></span><span>8. DTD (XML Intro &amp; Syntax)</span></a></li>
+        <li><a href="#u2-dhtml" class="sidebar-topic-link" data-topic-id="u2-dhtml"><span class="sidebar-topic-dot"></span><span>9. Dynamic HTML</span></a></li>
+        <li><a href="#u2-xml-schemas" class="sidebar-topic-link" data-topic-id="u2-xml-schemas"><span class="sidebar-topic-dot"></span><span>10. XML Schemas (XSD)</span></a></li>
+        <li><a href="#u2-object-models" class="sidebar-topic-link" data-topic-id="u2-object-models"><span class="sidebar-topic-dot"></span><span>11. Object Models</span></a></li>
+        <li><a href="#u2-presenting-xml" class="sidebar-topic-link" data-topic-id="u2-presenting-xml"><span class="sidebar-topic-dot"></span><span>12. Presenting XML</span></a></li>
+        <li><a href="#u2-xml-processors" class="sidebar-topic-link" data-topic-id="u2-xml-processors"><span class="sidebar-topic-dot"></span><span>13. Using XML Processors</span></a></li>
+        <li><a href="#u2-dom" class="sidebar-topic-link" data-topic-id="u2-dom"><span class="sidebar-topic-dot"></span><span>14. DOM</span></a></li>
+        <li><a href="#u2-sax" class="sidebar-topic-link" data-topic-id="u2-sax"><span class="sidebar-topic-dot"></span><span>15. SAX</span></a></li>
+        <li><a href="#unit-2-revision" class="sidebar-topic-link"><span class="sidebar-topic-dot"></span><span>★ Quick Revision &amp; FAQ</span></a></li>
+      </ul>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <main id="main-content" class="main-content">
+      <div class="content-container">
+
+        <section class="unit-hero">
+          <div class="unit-hero-top">
+            <div class="unit-hero-badges">
+              <span class="badge-unit">Unit 2</span>
+              <span class="badge-duration">Duration: 8 Hours</span>
+            </div>
+            <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+          </div>
+          <h1>Unit 2 – HTML, CSS, JavaScript and XML</h1>
+          <p class="unit-hero-desc">Build complete mastery of client-side web development and structured data: HTML elements (Lists, Tables, Images, Forms, Frames), CSS styling and layouts, Dynamic HTML with JavaScript, and the XML ecosystem (DTD, XML Schemas, XSLT, XML Processors, DOM, and SAX).</p>
+          <div class="unit-progress-box">
+            <div class="unit-progress-row">
+              <span id="unit-progress-count">0 / 15 Topics Completed</span>
+              <strong id="unit-progress-percent">0%</strong>
+            </div>
+            <div class="progress-track"><div id="unit-progress-bar" class="progress-fill"></div></div>
+          </div>
+        </section>
+
+        <section class="topic-index-card" aria-label="Unit 2 Topic Index">
+          <h2>Syllabus Topics in Unit 2</h2>
+          <div class="topic-pill-grid">
+            <a href="#u2-lists" class="topic-pill" data-topic-id="u2-lists">1. Lists</a>
+            <a href="#u2-tables" class="topic-pill" data-topic-id="u2-tables">2. Tables</a>
+            <a href="#u2-images" class="topic-pill" data-topic-id="u2-images">3. Images</a>
+            <a href="#u2-forms" class="topic-pill" data-topic-id="u2-forms">4. Forms</a>
+            <a href="#u2-frames" class="topic-pill" data-topic-id="u2-frames">5. Frames</a>
+            <a href="#u2-dhtml-js" class="topic-pill" data-topic-id="u2-dhtml-js">6. Dynamic HTML with JS</a>
+            <a href="#u2-css" class="topic-pill" data-topic-id="u2-css">7. CSS</a>
+            <a href="#u2-dtd" class="topic-pill" data-topic-id="u2-dtd">8. DTD</a>
+            <a href="#u2-dhtml" class="topic-pill" data-topic-id="u2-dhtml">9. Dynamic HTML</a>
+            <a href="#u2-xml-schemas" class="topic-pill" data-topic-id="u2-xml-schemas">10. XML Schemas</a>
+            <a href="#u2-object-models" class="topic-pill" data-topic-id="u2-object-models">11. Object Models</a>
+            <a href="#u2-presenting-xml" class="topic-pill" data-topic-id="u2-presenting-xml">12. Presenting XML</a>
+            <a href="#u2-xml-processors" class="topic-pill" data-topic-id="u2-xml-processors">13. Using XML Processors</a>
+            <a href="#u2-dom" class="topic-pill" data-topic-id="u2-dom">14. DOM</a>
+            <a href="#u2-sax" class="topic-pill" data-topic-id="u2-sax">15. SAX</a>
+          </div>
+        </section>
+
+        <!-- 2.1 Lists -->
+        <article id="u2-lists" class="topic-section" data-topic-id="u2-lists">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.1</span><h2>Lists</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-lists" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> HTML <strong>Lists</strong> group related items semantically into ordered sequences (<code>&lt;ol&gt;</code>), unordered bulleted collections (<code>&lt;ul&gt;</code>), or term-description pairs (<code>&lt;dl&gt;</code>).</p>
+            </div>
+            <h3>Important Tags &amp; Attributes</h3>
+            <ul>
+              <li><code>&lt;ul&gt;</code> &amp; <code>&lt;li&gt;</code>: Unordered list and list item.</li>
+              <li><code>&lt;ol type="1|A|a|I|i" start="N" reversed&gt;</code>: Ordered list with customizable numbering style and starting value.</li>
+              <li><code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code>, <code>&lt;dd&gt;</code>: Description list, term, and definition.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>lists-example.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;h3&gt;Web Stack&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTML5&lt;/li&gt;
+  &lt;li&gt;CSS3
+    &lt;ol type="a"&gt;
+      &lt;li&gt;Flexbox&lt;/li&gt;
+      &lt;li&gt;CSS Grid&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;dl&gt;
+  &lt;dt&gt;DOM&lt;/dt&gt;
+  &lt;dd&gt;Document Object Model tree representing the page.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+            </div>
+            <div class="output-preview">
+              <span class="output-preview-label">Browser Output Description</span>
+              Renders "HTML5" and "CSS3" with bullet points; indented beneath "CSS3" appear "a. Flexbox" and "b. CSS Grid". Below that, "DOM" renders left-aligned with its definition indented underneath.
+            </div>
+            <div class="topic-nav-bar"><span></span><a href="#u2-tables">Next: Tables →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.2 Tables -->
+        <article id="u2-tables" class="topic-section" data-topic-id="u2-tables">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.2</span><h2>Tables</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-tables" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> HTML <strong>Tables</strong> organize two-dimensional tabular data into rows and columns using <code>&lt;table&gt;</code>, header cells (<code>&lt;th&gt;</code>), and data cells (<code>&lt;td&gt;</code>).</p>
+            </div>
+            <h3>Structure, Tags &amp; Attributes</h3>
+            <ul>
+              <li><strong>Semantic Sections:</strong> <code>&lt;caption&gt;</code> (title), <code>&lt;thead&gt;</code> (header rows), <code>&lt;tbody&gt;</code> (body rows), <code>&lt;tfoot&gt;</code> (summary/totals).</li>
+              <li><strong>Cell Spanning:</strong> <code>colspan="n"</code> merges <em>n</em> horizontal columns; <code>rowspan="n"</code> merges <em>n</em> vertical rows.</li>
+              <li><strong>Accessibility:</strong> Use <code>scope="col"</code> or <code>scope="row"</code> on <code>&lt;th&gt;</code> so screen readers associate headers with data cells.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>table-example.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;table border="1"&gt;
+  &lt;caption&gt;B.Tech Web Tech Marks&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th scope="col"&gt;Roll No&lt;/th&gt;&lt;th scope="col"&gt;Name&lt;/th&gt;&lt;th scope="col"&gt;Score&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;101&lt;/td&gt;&lt;td&gt;Priya&lt;/td&gt;&lt;td&gt;92&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td colspan="2"&gt;Class Average&lt;/td&gt;&lt;td&gt;92&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+            <div class="output-preview">
+              <span class="output-preview-label">Browser Output Description</span>
+              Displays a bordered grid with a centered caption above three bold column headers ("Roll No", "Name", "Score"), a data row for Priya, and a bottom row where "Class Average" spans across the first two columns.
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-lists">← Previous: Lists</a><a href="#u2-images">Next: Images →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.3 Images -->
+        <article id="u2-images" class="topic-section" data-topic-id="u2-images">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.3</span><h2>Images</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-images" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> HTML <strong>Images</strong> embed raster or vector graphics into web pages using the void <code>&lt;img&gt;</code> element, semantic <code>&lt;figure&gt;</code> containers, or responsive <code>&lt;picture&gt;</code> elements.</p>
+            </div>
+            <h3>Important Attributes &amp; Elements</h3>
+            <ul>
+              <li><code>src</code>: Path or URL to the image file (JPEG, PNG, WebP, SVG, AVIF).</li>
+              <li><code>alt</code>: Mandatory alternative text for screen readers and fallback when the image fails to load.</li>
+              <li><code>width</code> &amp; <code>height</code>: Reserves layout space to prevent Cumulative Layout Shift (CLS).</li>
+              <li><code>loading="lazy"</code>: Defers off-screen image loading to improve page speed.</li>
+              <li><code>&lt;map&gt;</code> &amp; <code>&lt;area&gt;</code>: Creates clickable image maps with geometric coordinates (<code>rect</code>, <code>circle</code>, <code>poly</code>).</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>images-example.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;figure&gt;
+  &lt;img src="assets/architecture.png" alt="Three-tier web architecture diagram"
+       width="600" height="340" loading="lazy"&gt;
+  &lt;figcaption&gt;Figure 1: Client, Application Server, and Database Tiers&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            </div>
+            <div class="output-preview">
+              <span class="output-preview-label">Browser Output Description</span>
+              Renders the 600×340 diagram inside a semantic figure block with the caption text neatly displayed directly beneath the image.
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-tables">← Previous: Tables</a><a href="#u2-forms">Next: Forms →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.4 Forms -->
+        <article id="u2-forms" class="topic-section" data-topic-id="u2-forms">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.4</span><h2>Forms</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-forms" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> HTML <strong>Forms</strong> (<code>&lt;form&gt;</code>) collect structured user input—such as login credentials, registrations, or search queries—and submit it to a server or JavaScript handler.</p>
+            </div>
+            <h3>Key Attributes &amp; Controls</h3>
+            <ul>
+              <li><code>action</code>: Destination URL that processes submitted form data.</li>
+              <li><code>method</code>: HTTP method—<code>GET</code> (appends data to URL query string, ideal for searches) or <code>POST</code> (sends data in HTTP request body, required for passwords/files).</li>
+              <li><strong>Controls:</strong> <code>&lt;input&gt;</code> (<code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>radio</code>, <code>checkbox</code>, <code>date</code>, <code>file</code>), <code>&lt;select&gt;</code>/<code>&lt;option&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;label for="..."&gt;</code>, and <code>&lt;button type="submit"&gt;</code>.</li>
+              <li><strong>HTML5 Validation:</strong> Attributes like <code>required</code>, <code>minlength</code>, <code>pattern</code>, and <code>min</code>/<code>max</code> validate input natively before submission.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>form-example.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;form action="/register" method="POST"&gt;
+  &lt;label for="email"&gt;University Email:&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" required placeholder="student@uni.edu"&gt;
+
+  &lt;label for="sem"&gt;Semester:&lt;/label&gt;
+  &lt;select id="sem" name="semester"&gt;
+    &lt;option value="5"&gt;5th Semester&lt;/option&gt;
+    &lt;option value="6"&gt;6th Semester&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;button type="submit"&gt;Register&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+            <div class="output-preview">
+              <span class="output-preview-label">Browser Output Description</span>
+              Displays an email input box with placeholder text, a dropdown selector for Semester, and a clickable "Register" button; submitting without a valid email triggers a native browser validation tooltip.
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-images">← Previous: Images</a><a href="#u2-frames">Next: Frames →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.5 Frames -->
+        <article id="u2-frames" class="topic-section" data-topic-id="u2-frames">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.5</span><h2>Frames</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-frames" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>Frames</strong> allow a web page to display another independent HTML document inside a defined region of the browser window.</p>
+            </div>
+            <h3>Legacy <code>&lt;frameset&gt;</code> vs. Modern <code>&lt;iframe&gt;</code></h3>
+            <ul>
+              <li><strong>HTML4 Framesets (Deprecated):</strong> <code>&lt;frameset cols="25%,75%"&gt;</code> and <code>&lt;frame&gt;</code> replaced <code>&lt;body&gt;</code> to split the viewport into panes. Removed in HTML5 due to broken bookmarking, accessibility, and printing issues.</li>
+              <li><strong>HTML5 Inline Frames (<code>&lt;iframe&gt;</code>):</strong> Embeds external content (videos, maps, payment widgets) inside a normal page.</li>
+              <li><strong>Security Attributes:</strong> <code>sandbox</code> restricts scripts/forms inside the frame; <code>allow</code> controls camera/fullscreen permissions; <code>title</code> provides screen-reader context.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>iframe-example.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;iframe src="https://example.edu/lab-manual.html"
+        title="Web Technology Lab Manual"
+        width="100%" height="360"
+        sandbox="allow-scripts allow-same-origin"
+        loading="lazy"&gt;
+&lt;/iframe&gt;</code></pre>
+            </div>
+            <div class="output-preview">
+              <span class="output-preview-label">Browser Output Description</span>
+              Renders a scrollable 360px-tall embedded viewport inside the parent page displaying the external lab manual document under strict sandbox restrictions.
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-forms">← Previous: Forms</a><a href="#u2-dhtml-js">Next: Dynamic HTML with JS →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.6 Dynamic HTML with JavaScript -->
+        <article id="u2-dhtml-js" class="topic-section" data-topic-id="u2-dhtml-js">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.6</span><h2>Dynamic HTML with JavaScript</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-dhtml-js" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>Dynamic HTML with JavaScript</strong> uses client-side JavaScript event handlers and DOM APIs to update page content, styles, and structure interactively without reloading the page from the server.</p>
+            </div>
+            <h3>Core Mechanisms</h3>
+            <ul>
+              <li><strong>Selecting Elements:</strong> <code>document.getElementById()</code>, <code>document.querySelector()</code>.</li>
+              <li><strong>Event Handling:</strong> Attaching listeners via <code>addEventListener("click", fn)</code>, <code>input</code>, or <code>submit</code>.</li>
+              <li><strong>DOM Mutation:</strong> Changing <code>textContent</code>, <code>innerHTML</code>, <code>classList.toggle()</code>, or creating nodes with <code>document.createElement()</code>.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>dhtml-counter.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;p id="status"&gt;Topics studied: 0&lt;/p&gt;
+&lt;button id="incBtn" type="button"&gt;Complete Topic&lt;/button&gt;
+
+&lt;script&gt;
+  let count = 0;
+  const statusEl = document.getElementById("status");
+  document.getElementById("incBtn").addEventListener("click", () =&gt; {
+    count++;
+    statusEl.textContent = `Topics studied: ${count}`;
+    statusEl.style.color = "#55D6BE";
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-frames">← Previous: Frames</a><a href="#u2-css">Next: CSS →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.7 CSS -->
+        <article id="u2-css" class="topic-section" data-topic-id="u2-css">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.7</span><h2>CSS (Cascading Style Sheets)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-css" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>CSS</strong> is a stylesheet language that controls the visual presentation, typography, colors, and responsive layout of HTML and XML documents, separating presentation from content.</p>
+            </div>
+            <h3>Three Types of CSS</h3>
+            <ol>
+              <li><strong>Inline CSS:</strong> Applied via the <code>style="..."</code> attribute on a single element (highest specificity, hard to maintain).</li>
+              <li><strong>Internal (Embedded) CSS:</strong> Placed inside a <code>&lt;style&gt;</code> block in the document <code>&lt;head&gt;</code>.</li>
+              <li><strong>External CSS:</strong> Stored in a separate <code>.css</code> file linked with <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> (best practice for caching and reuse).</li>
+            </ol>
+
+            <h3>Selectors &amp; Specificity</h3>
+            <p>Selectors target elements: <strong>Universal</strong> (<code>*</code>), <strong>Type</strong> (<code>p</code>), <strong>Class</strong> (<code>.card</code>), <strong>ID</strong> (<code>#header</code>), <strong>Attribute</strong> (<code>input[type="text"]</code>), and <strong>Pseudo-classes</strong> (<code>a:hover</code>, <code>li:first-child</code>). Specificity follows: Inline &gt; ID &gt; Class/Attribute/Pseudo-class &gt; Element.</p>
+
+            <h3>The CSS Box Model</h3>
+            <p>Every HTML element is rendered as a rectangular box comprising four concentric layers: <strong>Content</strong> (text/image), <strong>Padding</strong> (inner space), <strong>Border</strong> (frame around padding), and <strong>Margin</strong> (outer space separating sibling elements).</p>
+            <div class="diagram-box">
+              <svg viewBox="0 0 460 220" width="440" height="210" role="img" aria-label="CSS Box Model Diagram">
+                <rect x="20" y="10" width="420" height="200" rx="8" fill="rgba(245,185,113,0.12)" stroke="#F5B971" stroke-dasharray="6,4" stroke-width="2"/>
+                <text x="230" y="30" fill="#F5B971" font-size="12" font-weight="700" text-anchor="middle">MARGIN (Outer Spacing)</text>
+
+                <rect x="60" y="42" width="340" height="145" rx="6" fill="rgba(120,152,255,0.15)" stroke="#7898FF" stroke-width="3"/>
+                <text x="230" y="60" fill="#7898FF" font-size="12" font-weight="700" text-anchor="middle">BORDER</text>
+
+                <rect x="100" y="72" width="260" height="95" rx="4" fill="rgba(85,214,190,0.14)" stroke="#55D6BE" stroke-width="1.5"/>
+                <text x="230" y="90" fill="#55D6BE" font-size="12" font-weight="700" text-anchor="middle">PADDING (Inner Spacing)</text>
+
+                <rect x="145" y="102" width="170" height="48" rx="4" fill="#151F33" stroke="#F1F5FF" stroke-width="1.5"/>
+                <text x="230" y="131" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">CONTENT (w × h)</text>
+              </svg>
+              <div class="diagram-caption">Figure 2.1: CSS Box Model (Use <code>box-sizing: border-box</code> to include padding &amp; border inside width)</div>
+            </div>
+
+            <h3>Modern Layout Concepts (Flexbox &amp; CSS Grid)</h3>
+            <ul>
+              <li><strong>Flexbox (<code>display: flex</code>):</strong> One-dimensional layout model for aligning items along a row or column using <code>justify-content</code> and <code>align-items</code>.</li>
+              <li><strong>CSS Grid (<code>display: grid</code>):</strong> Two-dimensional layout system defining explicit rows and columns with <code>grid-template-columns</code> and <code>gap</code>.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>layout.css</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.card {
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+}</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-dhtml-js">← Previous: DHTML with JS</a><a href="#u2-dtd">Next: DTD →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.8 DTD -->
+        <article id="u2-dtd" class="topic-section" data-topic-id="u2-dtd">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.8</span><h2>Document Type Definition (DTD)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-dtd" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>XML (eXtensible Markup Language)</strong> is a self-describing, platform-independent markup format for storing and transporting structured data. A <strong>Document Type Definition (DTD)</strong> defines the legal building blocks, element hierarchy, and attributes of an XML document.</p>
+            </div>
+            <h3>XML Syntax &amp; Document Structure Rules</h3>
+            <ul>
+              <li>Every XML document must have a single <strong>root element</strong> and an optional prolog (<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>).</li>
+              <li>Tags are <strong>case-sensitive</strong>, must be <strong>properly nested</strong>, and every opening tag must have a closing tag.</li>
+              <li>Attribute values must always be enclosed in quotes.</li>
+            </ul>
+            <h3>Internal vs. External DTD</h3>
+            <p>An <strong>Internal DTD</strong> is declared inside <code>&lt;!DOCTYPE root [...]&gt;</code> within the XML file itself, whereas an <strong>External DTD</strong> resides in a separate <code>.dtd</code> file referenced via <code>&lt;!DOCTYPE root SYSTEM "file.dtd"&gt;</code>.</p>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>student.xml (with Internal DTD)</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE student [
+  &lt;!ELEMENT student (name, branch, cgpa)&gt;
+  &lt;!ELEMENT name (#PCDATA)&gt;
+  &lt;!ELEMENT branch (#PCDATA)&gt;
+  &lt;!ELEMENT cgpa (#PCDATA)&gt;
+  &lt;!ATTLIST student roll CDATA #REQUIRED&gt;
+]&gt;
+&lt;student roll="CS2026"&gt;
+  &lt;name&gt;Ananya Verma&lt;/name&gt;
+  &lt;branch&gt;CSE&lt;/branch&gt;
+  &lt;cgpa&gt;8.9&lt;/cgpa&gt;
+&lt;/student&gt;</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-css">← Previous: CSS</a><a href="#u2-dhtml">Next: Dynamic HTML →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.9 Dynamic HTML -->
+        <article id="u2-dhtml" class="topic-section" data-topic-id="u2-dhtml">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.9</span><h2>Dynamic HTML (DHTML)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-dhtml" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>Dynamic HTML (DHTML)</strong> is not a single language, but an umbrella term describing the combination of <strong>HTML</strong> (structure), <strong>CSS</strong> (presentation), <strong>JavaScript</strong> (behavior), and the <strong>DOM</strong> (programming interface) to create animated, interactive web pages.</p>
+            </div>
+            <h3>How the Four Technologies Work Together</h3>
+            <div class="diagram-box">
+              <svg viewBox="0 0 640 130" width="600" height="125" role="img" aria-label="DHTML Architecture Diagram">
+                <rect x="20" y="30" width="120" height="65" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="80" y="58" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">HTML</text>
+                <text x="80" y="76" fill="#A3B0C7" font-size="10" text-anchor="middle">Structure</text>
+
+                <rect x="180" y="30" width="120" height="65" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="2"/>
+                <text x="240" y="58" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">CSS</text>
+                <text x="240" y="76" fill="#A3B0C7" font-size="10" text-anchor="middle">Styling</text>
+
+                <rect x="340" y="30" width="120" height="65" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="2"/>
+                <text x="400" y="58" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">DOM</text>
+                <text x="400" y="76" fill="#A3B0C7" font-size="10" text-anchor="middle">Object Tree</text>
+
+                <rect x="500" y="30" width="120" height="65" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="560" y="58" fill="#F1F5FF" font-size="13" font-weight="700" text-anchor="middle">JavaScript</text>
+                <text x="560" y="76" fill="#A3B0C7" font-size="10" text-anchor="middle">Events &amp; Logic</text>
+
+                <line x1="140" y1="62" x2="180" y2="62" stroke="#A3B0C7" stroke-width="1.5"/>
+                <line x1="300" y1="62" x2="340" y2="62" stroke="#A3B0C7" stroke-width="1.5"/>
+                <line x1="460" y1="62" x2="500" y2="62" stroke="#A3B0C7" stroke-width="1.5"/>
+              </svg>
+              <div class="diagram-caption">Figure 2.2: The Four Pillars of Dynamic HTML</div>
+            </div>
+            <p>When a user clicks a button or hovers over a menu, <strong>JavaScript</strong> captures the event, accesses the target node through the <strong>DOM</strong>, and modifies its <strong>HTML</strong> content or <strong>CSS</strong> properties instantaneously in the browser.</p>
+            <div class="topic-nav-bar"><a href="#u2-dtd">← Previous: DTD</a><a href="#u2-xml-schemas">Next: XML Schemas →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.10 XML Schemas -->
+        <article id="u2-xml-schemas" class="topic-section" data-topic-id="u2-xml-schemas">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.10</span><h2>XML Schemes / XML Schemas (XSD)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-xml-schemas" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> An <strong>XML Schema Definition (XSD)</strong> is an XML-based language standardized by the W3C that describes the structure, element hierarchy, strong data types, and constraints of XML documents—overcoming the limitations of DTD.</p>
+            </div>
+            <h3>XML Namespaces &amp; XSD Features</h3>
+            <ul>
+              <li><strong>XML Namespaces (<code>xmlns</code>):</strong> Prevent element name collisions when combining XML vocabularies (e.g., <code>xmlns:xs="http://www.w3.org/2001/XMLSchema"</code>).</li>
+              <li><strong>Rich Data Types:</strong> Supports <code>xs:string</code>, <code>xs:integer</code>, <code>xs:decimal</code>, <code>xs:date</code>, <code>xs:boolean</code>, plus custom <code>simpleType</code> restrictions (patterns, min/max) and <code>complexType</code> sequences.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>student.xsd</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;xs:element name="student"&gt;
+    &lt;xs:complexType&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="name" type="xs:string"/&gt;
+        &lt;xs:element name="semester" type="xs:integer"/&gt;
+      &lt;/xs:sequence&gt;
+      &lt;xs:attribute name="roll" type="xs:string" use="required"/&gt;
+    &lt;/xs:complexType&gt;
+  &lt;/xs:element&gt;
+&lt;/xs:schema&gt;</code></pre>
+            </div>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Feature</th><th>DTD</th><th>XML Schema (XSD)</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Syntax</strong></td><td>Non-XML EBNF-like syntax</td><td>Written in valid XML syntax</td></tr>
+                  <tr><td><strong>Data Types</strong></td><td>Very limited (<code>#PCDATA</code>, <code>CDATA</code>)</td><td>44+ built-in types + custom restrictions</td></tr>
+                  <tr><td><strong>Namespaces</strong></td><td>Not supported</td><td>Full XML Namespace support</td></tr>
+                  <tr><td><strong>Extensibility</strong></td><td>Rigid</td><td>Object-oriented (inheritance, extension)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-dhtml">← Previous: Dynamic HTML</a><a href="#u2-object-models">Next: Object Models →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.11 Object Models -->
+        <article id="u2-object-models" class="topic-section" data-topic-id="u2-object-models">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.11</span><h2>Object Models</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-object-models" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> In Web Technology, an <strong>Object Model</strong> is an in-memory, language-neutral API representation of an HTML or XML document (and browser environment) as a hierarchy of objects with properties, methods, and events.</p>
+            </div>
+            <ul>
+              <li><strong>BOM (Browser Object Model):</strong> Represents browser-level objects like <code>window</code>, <code>navigator</code>, <code>location</code>, <code>history</code>, and <code>screen</code>.</li>
+              <li><strong>DOM (Document Object Model):</strong> Represents the document itself (<code>document</code>) as a tree of <code>Node</code>, <code>Element</code>, <code>Attr</code>, and <code>Text</code> objects that scripts can traverse and mutate.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u2-xml-schemas">← Previous: XML Schemas</a><a href="#u2-presenting-xml">Next: Presenting XML →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.12 Presenting XML -->
+        <article id="u2-presenting-xml" class="topic-section" data-topic-id="u2-presenting-xml">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.12</span><h2>Presenting XML</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-presenting-xml" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> Because XML only stores raw data without formatting instructions, <strong>Presenting XML</strong> involves attaching stylesheets using <strong>CSS</strong> or transforming XML into HTML/PDF using <strong>XSLT (eXtensible Stylesheet Language Transformations)</strong>.</p>
+            </div>
+            <h3>Approaches to XML Presentation</h3>
+            <ol>
+              <li><strong>CSS with XML:</strong> Link via <code>&lt;?xml-stylesheet type="text/css" href="style.css"?&gt;</code> to style custom tags directly (limited: cannot reorder or compute values).</li>
+              <li><strong>XSLT + XPath:</strong> XSLT uses <strong>XPath</strong> expressions to select XML nodes and transform them into HTML tables, lists, or another XML format.</li>
+            </ol>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>catalog.xsl (XSLT Example)</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;&lt;body&gt;
+      &lt;h2&gt;Course List&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;xsl:for-each select="courses/course"&gt;
+          &lt;li&gt;&lt;xsl:value-of select="title"/&gt;&lt;/li&gt;
+        &lt;/xsl:for-each&gt;
+      &lt;/ul&gt;
+    &lt;/body&gt;&lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-object-models">← Previous: Object Models</a><a href="#u2-xml-processors">Next: Using XML Processors →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.13 Using XML Processors -->
+        <article id="u2-xml-processors" class="topic-section" data-topic-id="u2-xml-processors">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.13</span><h2>Using XML Processors</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-xml-processors" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> An <strong>XML Processor</strong> (parser) is a software module that reads an XML document, verifies its syntax, and exposes its data to an application via an API such as DOM or SAX.</p>
+            </div>
+            <h3>Types of XML Processors</h3>
+            <ul>
+              <li><strong>Non-Validating Parser:</strong> Checks only that the XML is <strong>well-formed</strong> (matching tags, single root, proper nesting).</li>
+              <li><strong>Validating Parser:</strong> Checks well-formedness <em>and</em> verifies that the document conforms to a <strong>DTD</strong> or <strong>XML Schema (XSD)</strong> (making it a <strong>valid</strong> XML document).</li>
+            </ul>
+            <p><strong>Workflow:</strong> Raw XML File → XML Processor (Lexer/Parser + Optional Validator) → Tree API (DOM) or Event Stream (SAX) → Application Logic.</p>
+            <div class="topic-nav-bar"><a href="#u2-presenting-xml">← Previous: Presenting XML</a><a href="#u2-dom">Next: DOM →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.14 DOM -->
+        <article id="u2-dom" class="topic-section" data-topic-id="u2-dom">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.14</span><h2>DOM (Document Object Model)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-dom" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> The <strong>DOM</strong> is a W3C tree-based API that loads an entire XML or HTML document into memory as a hierarchical tree of nodes, allowing bidirectional traversal and dynamic modification.</p>
+            </div>
+            <h3>Architecture &amp; Practical Example</h3>
+            <p>In DOM, the document is the root node, elements are branch nodes, and text/attributes are leaf/property nodes. Because the full tree resides in RAM, applications can jump to any node randomly, insert new elements, or delete nodes.</p>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>dom-parser.js</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>const xmlText = `&lt;book&gt;&lt;title&gt;Web Tech&lt;/title&gt;&lt;price&gt;450&lt;/price&gt;&lt;/book&gt;`;
+const parser = new DOMParser();
+const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+const title = xmlDoc.getElementsByTagName("title")[0].textContent;
+console.log("Book Title:", title); // Output: Book Title: Web Tech</code></pre>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-xml-processors">← Previous: XML Processors</a><a href="#u2-sax">Next: SAX →</a></div>
+          </div>
+        </article>
+
+        <!-- 2.15 SAX + DOM vs SAX Comparison Table -->
+        <article id="u2-sax" class="topic-section" data-topic-id="u2-sax">
+          <div class="topic-header">
+            <div class="topic-title-wrap"><span class="topic-number">TOPIC 2.15</span><h2>SAX (Simple API for XML)</h2></div>
+            <button type="button" class="complete-btn" data-topic-id="u2-sax" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>SAX</strong> is an event-driven, sequential streaming API for parsing XML documents. Instead of loading the entire document into memory, it fires callback events as it reads tags from start to finish.</p>
+            </div>
+            <h3>Working Mechanism &amp; Callbacks</h3>
+            <p>A SAX parser invokes methods on a <code>ContentHandler</code> as it encounters XML tokens: <code>startDocument()</code>, <code>startElement()</code>, <code>characters()</code>, <code>endElement()</code>, and <code>endDocument()</code>. This makes SAX ideal for multi-gigabyte XML feeds where memory is constrained.</p>
+
+            <h3>Detailed Comparison: DOM vs. SAX</h3>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Parameter</th><th>DOM (Document Object Model)</th><th>SAX (Simple API for XML)</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Parsing Model</strong></td><td>Tree-based (loads entire document into RAM)</td><td>Event-driven / Streaming (sequential read)</td></tr>
+                  <tr><td><strong>Memory Usage</strong></td><td>High (proportional to document size)</td><td>Very low (constant memory footprint)</td></tr>
+                  <tr><td><strong>Traversal</strong></td><td>Random &amp; bidirectional (parent, child, sibling)</td><td>Forward-only, top-to-bottom</td></tr>
+                  <tr><td><strong>Modification</strong></td><td>Read and Write (can add, edit, delete nodes)</td><td>Read-only (cannot modify XML directly)</td></tr>
+                  <tr><td><strong>Speed</strong></td><td>Slower for large files due to tree construction</td><td>Fast startup and streaming throughput</td></tr>
+                  <tr><td><strong>Best Use Case</strong></td><td>Small/medium configs, HTML UI manipulation</td><td>Large XML datasets, log/feed processing</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><a href="#u2-dom">← Previous: DOM</a><a href="#unit-2-revision">Next: Quick Revision &amp; FAQ →</a></div>
+          </div>
+        </article>
+
+        <!-- UNIT 2 QUICK REVISION -->
+        <section id="unit-2-revision" class="revision-section" aria-labelledby="u2-rev-title">
+          <h2 id="u2-rev-title">Unit 2 – Quick Revision &amp; Exam Prep</h2>
+          <div class="revision-grid">
+            <div class="revision-card">
+              <h3>Important Definitions</h3>
+              <ul>
+                <li><strong>Box Model:</strong> Content + Padding + Border + Margin.</li>
+                <li><strong>DHTML:</strong> HTML + CSS + JavaScript + DOM working together.</li>
+                <li><strong>Well-Formed XML:</strong> Follows XML syntax rules.</li>
+                <li><strong>Valid XML:</strong> Well-formed <em>and</em> conforms to a DTD or XSD.</li>
+              </ul>
+            </div>
+            <div class="revision-card">
+              <h3>Key Differences</h3>
+              <ul>
+                <li><strong>colspan vs. rowspan:</strong> Merge columns horizontally vs. rows vertically.</li>
+                <li><strong>DTD vs. XSD:</strong> Non-XML &amp; typeless vs. XML-based &amp; strongly typed.</li>
+                <li><strong>DOM vs. SAX:</strong> In-memory read/write tree vs. low-memory read-only event stream.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <h3 style="font-size:1rem;margin-bottom:8px;">Frequently Asked Exam Questions</h3>
+            <div class="faq-item">
+              <div class="faq-question">Q1. Why were HTML4 &lt;frameset&gt; tags deprecated in HTML5?</div>
+              <div class="faq-answer">Framesets broke browser back-button history, URL bookmarking, printing, and screen-reader accessibility. Modern HTML5 uses <code>&lt;iframe&gt;</code> with <code>sandbox</code> for isolated embeds.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q2. When should you choose SAX over DOM for XML processing?</div>
+              <div class="faq-answer">Choose SAX when parsing very large XML files on memory-constrained servers and you only need to extract data in a single forward pass without modifying the document.</div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="unit-pagination" aria-label="Unit Pagination">
+          <a href="unit-1.html" class="btn btn-secondary">← Previous: Unit 1</a>
+          <a href="unit-3.html" class="btn btn-primary">Next: Unit 3 – Web Services &amp; AJAX →</a>
+        </nav>
+
+        <footer class="site-footer">
+          <span>Unit 2 – HTML, CSS, JavaScript and XML</span>
+          <span>Web Technology – The Complete Learning Library</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/syllabus-data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

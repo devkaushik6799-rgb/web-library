@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unit 1 – Internet Fundamentals and Web Architecture: History of the Internet, WWW, HTML, HTTP, SMTP, POP3, MIME, IMAP, DNS, Web Browsers, and Web Servers.">
+  <title>Unit 1 – Internet Fundamentals and Web Architecture | Web Technology Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/units.css">
+</head>
+<body data-unit-id="1">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.svg" alt="Web Technology Library Logo" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-title">Web Technology</span>
+          <span class="brand-subtitle">The Complete Learning Library</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="index.html" class="header-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Dashboard</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-search" role="search">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="global-search-input" class="search-input" type="search" placeholder="Search all 63 syllabus topics..." aria-label="Search syllabus topics" autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown" role="region" aria-label="Search results"></div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-progress-pill" title="Overall Syllabus Completion">
+        <span>Overall:</span>
+        <strong id="header-progress-percent">0%</strong>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch to light theme">
+        <span aria-hidden="true">☀️</span> <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside id="site-sidebar" class="sidebar" aria-label="Course and Unit Navigation">
+      <div class="sidebar-section-label">Library Navigation</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="index.html" class="sidebar-link"><span>← Back to Dashboard</span><span class="sidebar-unit-badge">Home</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">All Units</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="unit-1.html" class="sidebar-link active"><span>1. Internet &amp; Web Arch</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-2.html" class="sidebar-link"><span>2. HTML, CSS, JS &amp; XML</span><span class="sidebar-unit-badge">8h</span></a></li>
+        <li><a href="unit-3.html" class="sidebar-link"><span>3. Web Services &amp; AJAX</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-4.html" class="sidebar-link"><span>4. Web 2.0, 3.0 &amp; Modern</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-5.html" class="sidebar-link"><span>5. Web 4.0 &amp; Emerging</span><span class="sidebar-unit-badge">7h</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">Unit 1 Topics (11)</div>
+      <ul class="sidebar-topics-list">
+        <li><a href="#u1-history" class="sidebar-topic-link" data-topic-id="u1-history"><span class="sidebar-topic-dot"></span><span>1. History of the Internet</span></a></li>
+        <li><a href="#u1-www" class="sidebar-topic-link" data-topic-id="u1-www"><span class="sidebar-topic-dot"></span><span>2. World Wide Web (WWW)</span></a></li>
+        <li><a href="#u1-html" class="sidebar-topic-link" data-topic-id="u1-html"><span class="sidebar-topic-dot"></span><span>3. HTML</span></a></li>
+        <li><a href="#u1-http" class="sidebar-topic-link" data-topic-id="u1-http"><span class="sidebar-topic-dot"></span><span>4. Protocols – HTTP</span></a></li>
+        <li><a href="#u1-smtp" class="sidebar-topic-link" data-topic-id="u1-smtp"><span class="sidebar-topic-dot"></span><span>5. Protocols – SMTP</span></a></li>
+        <li><a href="#u1-pop3" class="sidebar-topic-link" data-topic-id="u1-pop3"><span class="sidebar-topic-dot"></span><span>6. Protocols – POP3</span></a></li>
+        <li><a href="#u1-mime" class="sidebar-topic-link" data-topic-id="u1-mime"><span class="sidebar-topic-dot"></span><span>7. MIME</span></a></li>
+        <li><a href="#u1-imap" class="sidebar-topic-link" data-topic-id="u1-imap"><span class="sidebar-topic-dot"></span><span>8. IMAP</span></a></li>
+        <li><a href="#u1-dns" class="sidebar-topic-link" data-topic-id="u1-dns"><span class="sidebar-topic-dot"></span><span>9. Domain Name Server (DNS)</span></a></li>
+        <li><a href="#u1-browsers" class="sidebar-topic-link" data-topic-id="u1-browsers"><span class="sidebar-topic-dot"></span><span>10. Web Browsers</span></a></li>
+        <li><a href="#u1-servers" class="sidebar-topic-link" data-topic-id="u1-servers"><span class="sidebar-topic-dot"></span><span>11. Web Servers</span></a></li>
+        <li><a href="#unit-1-revision" class="sidebar-topic-link"><span class="sidebar-topic-dot"></span><span>★ Quick Revision &amp; FAQ</span></a></li>
+      </ul>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <main id="main-content" class="main-content">
+      <div class="content-container">
+
+        <!-- Unit Hero -->
+        <section class="unit-hero">
+          <div class="unit-hero-top">
+            <div class="unit-hero-badges">
+              <span class="badge-unit">Unit 1</span>
+              <span class="badge-duration">Duration: 7 Hours</span>
+            </div>
+            <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+          </div>
+          <h1>Unit 1 – Internet Fundamentals and Web Architecture</h1>
+          <p class="unit-hero-desc">Master the foundational infrastructure of the modern web: how the Internet evolved from ARPANET, how the World Wide Web operates over HTTP/HTTPS, how email protocols (SMTP, POP3, MIME, IMAP) deliver messages, how DNS resolves domain names, and how browsers and web servers communicate.</p>
+          <div class="unit-progress-box">
+            <div class="unit-progress-row">
+              <span id="unit-progress-count">0 / 11 Topics Completed</span>
+              <strong id="unit-progress-percent">0%</strong>
+            </div>
+            <div class="progress-track">
+              <div id="unit-progress-bar" class="progress-fill"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Topic Quick Jump -->
+        <section class="topic-index-card" aria-label="Unit 1 Topic Index">
+          <h2>Syllabus Topics in Unit 1</h2>
+          <div class="topic-pill-grid">
+            <a href="#u1-history" class="topic-pill" data-topic-id="u1-history">1. History of the Internet</a>
+            <a href="#u1-www" class="topic-pill" data-topic-id="u1-www">2. World Wide Web (WWW)</a>
+            <a href="#u1-html" class="topic-pill" data-topic-id="u1-html">3. HTML</a>
+            <a href="#u1-http" class="topic-pill" data-topic-id="u1-http">4. Protocols – HTTP</a>
+            <a href="#u1-smtp" class="topic-pill" data-topic-id="u1-smtp">5. Protocols – SMTP</a>
+            <a href="#u1-pop3" class="topic-pill" data-topic-id="u1-pop3">6. Protocols – POP3</a>
+            <a href="#u1-mime" class="topic-pill" data-topic-id="u1-mime">7. MIME</a>
+            <a href="#u1-imap" class="topic-pill" data-topic-id="u1-imap">8. IMAP</a>
+            <a href="#u1-dns" class="topic-pill" data-topic-id="u1-dns">9. Domain Name Server (DNS)</a>
+            <a href="#u1-browsers" class="topic-pill" data-topic-id="u1-browsers">10. Web Browsers</a>
+            <a href="#u1-servers" class="topic-pill" data-topic-id="u1-servers">11. Web Servers</a>
+          </div>
+        </section>
+
+        <!-- TOPIC 1: History of the Internet -->
+        <article id="u1-history" class="topic-section" data-topic-id="u1-history">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.1</span>
+              <h2>History of the Internet</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-history" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> The <strong>Internet</strong> is a global, decentralized "network of networks" that interconnects millions of private, public, academic, business, and government networks using standardized communication protocols—primarily the <strong>TCP/IP</strong> (Transmission Control Protocol / Internet Protocol) suite.</p>
+            </div>
+
+            <h3>Introduction &amp; Conceptual Evolution</h3>
+            <p>Unlike a single centralized computer network, the Internet was engineered to survive partial outages and connect heterogeneous hardware. Its core innovation was <strong>packet switching</strong>—breaking data into small packets, routing each packet independently across available network links, and reassembling them at the destination.</p>
+
+            <h3>Understandable Timeline of the Internet</h3>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr><th>Year / Era</th><th>Milestone</th><th>Key Significance</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>1969</strong></td><td>ARPANET Launches</td><td>Funded by the U.S. Department of Defense (ARPA), the first four nodes (UCLA, Stanford, UCSB, Utah) connected via packet switching.</td></tr>
+                  <tr><td><strong>1971</strong></td><td>First Network Email</td><td>Ray Tomlinson sent the first email across ARPANET and introduced the <code>@</code> symbol to separate user and host names.</td></tr>
+                  <tr><td><strong>1974–1983</strong></td><td>TCP/IP Standardized</td><td>Vint Cerf and Bob Kahn designed TCP/IP. On January 1, 1983 ("Flag Day"), ARPANET officially switched from NCP to TCP/IP—the birth of the modern Internet.</td></tr>
+                  <tr><td><strong>1983–1985</strong></td><td>DNS &amp; NSFNET</td><td>Paul Mockapetris invented the Domain Name System (DNS); the National Science Foundation created NSFNET, linking university supercomputing centers.</td></tr>
+                  <tr><td><strong>1989–1991</strong></td><td>World Wide Web</td><td>Tim Berners-Lee at CERN proposed and built the WWW (HTTP, HTML, URL, and the first web browser/server).</td></tr>
+                  <tr><td><strong>1993–1995</strong></td><td>Mosaic &amp; Commercialization</td><td>NCSA Mosaic popularized graphical web browsing; NSFNET was decommissioned, opening the Internet to commercial ISPs and e-commerce.</td></tr>
+                  <tr><td><strong>2000s–Present</strong></td><td>Broadband, Mobile &amp; Cloud</td><td>Fiber optics, 4G/5G, smartphones, cloud computing, IPv6 adoption, and HTTP/2 &amp; HTTP/3 transformed the Internet into everyday global infrastructure.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout exam">
+              <div class="callout-title">Important Points for Examinations</div>
+              <ul>
+                <li><strong>Packet Switching vs. Circuit Switching:</strong> ARPANET used packet switching (shared bandwidth, resilient routing) instead of telephone-style circuit switching (dedicated path).</li>
+                <li><strong>TCP/IP Adoption (1983):</strong> Often cited in exams as the technical birth of the Internet because it enabled diverse networks to interoperate.</li>
+                <li><strong>Internet vs. WWW:</strong> The Internet is the physical/logical network infrastructure; the World Wide Web is one application service running on top of it.</li>
+              </ul>
+            </div>
+
+            <div class="topic-nav-bar">
+              <span></span>
+              <a href="#u1-www">Next: World Wide Web (WWW) →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 2: World Wide Web (WWW) -->
+        <article id="u1-www" class="topic-section" data-topic-id="u1-www">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.2</span>
+              <h2>World Wide Web (WWW)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-www" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> The <strong>World Wide Web (WWW)</strong> is an open, global information space of interlinked hypertext documents and multimedia resources accessed via the Internet using Uniform Resource Locators (URLs) and transferred over HTTP/HTTPS.</p>
+            </div>
+
+            <h3>Introduction &amp; Core Pillars</h3>
+            <p>Invented by <strong>Tim Berners-Lee</strong> at CERN in 1989, the WWW solved the problem of sharing documents across incompatible computer systems. It rests on three foundational standards:</p>
+            <ul>
+              <li><strong>URL (Uniform Resource Locator):</strong> A unique address identifying a resource on the Web (e.g., <code>https://example.edu:443/notes/unit1.html</code>).</li>
+              <li><strong>HTTP (HyperText Transfer Protocol):</strong> The application-layer protocol governing how clients request resources and servers respond.</li>
+              <li><strong>HTML (HyperText Markup Language):</strong> The markup format used to structure text, media, and hyperlinks connecting documents together.</li>
+            </ul>
+
+            <h3>Working Mechanism (Client–Server Web Model)</h3>
+            <ol>
+              <li>A user enters a URL or clicks a hyperlink in a web browser (client).</li>
+              <li>The browser resolves the domain name to an IP address via DNS.</li>
+              <li>The browser opens a TCP (and TLS for HTTPS) connection to the web server and sends an HTTP request.</li>
+              <li>The web server locates or dynamically generates the requested resource and returns an HTTP response containing status, headers, and HTML/media payload.</li>
+              <li>The browser parses the HTML, fetches linked CSS/JS/images, and renders the interactive page.</li>
+            </ol>
+
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr><th>Feature</th><th>Internet</th><th>World Wide Web (WWW)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Nature</strong></td><td>Global network hardware &amp; routing infrastructure</td><td>Information system / software service running on the Internet</td></tr>
+                  <tr><td><strong>Protocols</strong></td><td>TCP/IP, UDP, ICMP, BGP</td><td>HTTP, HTTPS (built on top of TCP/IP)</td></tr>
+                  <tr><td><strong>Origin</strong></td><td>ARPANET (1969) / TCP/IP (1983)</td><td>Tim Berners-Lee at CERN (1989–1991)</td></tr>
+                  <tr><td><strong>Services</strong></td><td>Email, FTP, SSH, VoIP, DNS, WWW</td><td>Web pages, web apps, REST APIs, multimedia</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-history">← Previous: History of the Internet</a>
+              <a href="#u1-html">Next: HTML →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 3: HTML -->
+        <article id="u1-html" class="topic-section" data-topic-id="u1-html">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.3</span>
+              <h2>HTML (HyperText Markup Language)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-html" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>HTML</strong> is the standard markup language used to structure and present content on the World Wide Web. It uses nested <em>tags</em> and <em>attributes</em> to define headings, paragraphs, links, images, forms, and semantic page regions.</p>
+            </div>
+
+            <h3>Key Characteristics</h3>
+            <ul>
+              <li><strong>Markup, Not Programming:</strong> HTML describes document structure and meaning rather than algorithmic control flow.</li>
+              <li><strong>Platform Independent:</strong> Any standards-compliant browser on Windows, Linux, macOS, Android, or iOS renders the same HTML document.</li>
+              <li><strong>Hypertext Capability:</strong> The <code>&lt;a href="..."&gt;</code> anchor tag connects documents across servers worldwide.</li>
+              <li><strong>HTML5 Semantics:</strong> Modern HTML5 introduces semantic landmarks like <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;footer&gt;</code> for accessibility and SEO.</li>
+            </ul>
+
+            <h3>Standard HTML5 Document Structure</h3>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>index.html</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;University Notice Board&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Department of Computer Science&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;p&gt;Exam schedules are available on the &lt;a href="schedule.html"&gt;portal&lt;/a&gt;.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+            <p><strong>Line-by-line explanation:</strong> <code>&lt;!DOCTYPE html&gt;</code> triggers standards mode; <code>&lt;html&gt;</code> is the root element; <code>&lt;head&gt;</code> holds metadata not drawn on the canvas; <code>&lt;body&gt;</code> contains visible elements rendered by the browser.</p>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-www">← Previous: World Wide Web</a>
+              <a href="#u1-http">Next: Protocols – HTTP →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 4: Protocols – HTTP -->
+        <article id="u1-http" class="topic-section" data-topic-id="u1-http">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.4</span>
+              <h2>Protocols – HTTP (HyperText Transfer Protocol)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-http" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>HTTP</strong> is an application-layer, stateless client–server protocol used to transfer hypermedia documents (HTML, JSON, images, video) across the Web. Its encrypted counterpart, <strong>HTTPS</strong>, layers HTTP over TLS (Transport Layer Security).</p>
+            </div>
+
+            <h3>Purpose &amp; Important Characteristics</h3>
+            <ul>
+              <li><strong>Request–Response Model:</strong> The client (browser) always initiates a request; the server returns a response.</li>
+              <li><strong>Stateless:</strong> Each request is independent—the server retains no memory of prior requests unless state is added via cookies, sessions, or tokens.</li>
+              <li><strong>Media Independent:</strong> Any data type can be sent as long as both sides specify the MIME <code>Content-Type</code> header.</li>
+              <li><strong>Default Ports:</strong> Port <code>80</code> for HTTP; Port <code>443</code> for HTTPS.</li>
+            </ul>
+
+            <h3>Request–Response Architecture</h3>
+            <div class="diagram-box">
+              <svg viewBox="0 0 680 150" width="640" height="145" role="img" aria-label="HTTP Request Response Diagram">
+                <rect x="20" y="35" width="160" height="80" rx="10" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="100" y="70" fill="#F1F5FF" font-size="14" font-weight="700" text-anchor="middle">Web Client</text>
+                <text x="100" y="90" fill="#A3B0C7" font-size="11" text-anchor="middle">(Browser / App)</text>
+
+                <rect x="500" y="35" width="160" height="80" rx="10" fill="#151F33" stroke="#55D6BE" stroke-width="2"/>
+                <text x="580" y="70" fill="#F1F5FF" font-size="14" font-weight="700" text-anchor="middle">Web Server</text>
+                <text x="580" y="90" fill="#A3B0C7" font-size="11" text-anchor="middle">(Port 80 / 443)</text>
+
+                <line x1="185" y1="55" x2="492" y2="55" stroke="#7898FF" stroke-width="2"/>
+                <polygon points="492,50 500,55 492,60" fill="#7898FF"/>
+                <text x="340" y="46" fill="#7898FF" font-size="12" font-weight="600" text-anchor="middle">HTTP Request: GET /index.html HTTP/1.1</text>
+
+                <line x1="495" y1="95" x2="188" y2="95" stroke="#55D6BE" stroke-width="2"/>
+                <polygon points="188,90 180,95 188,100" fill="#55D6BE"/>
+                <text x="340" y="115" fill="#55D6BE" font-size="12" font-weight="600" text-anchor="middle">HTTP Response: 200 OK + Headers + Body</text>
+              </svg>
+              <div class="diagram-caption">Figure 1.1: Stateless HTTP Client–Server Request–Response Cycle</div>
+            </div>
+
+            <h3>Common HTTP Methods</h3>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Method</th><th>Purpose</th><th>Safe / Idempotent</th></tr></thead>
+                <tbody>
+                  <tr><td><code>GET</code></td><td>Retrieve a resource without modifying server state</td><td>Safe &amp; Idempotent</td></tr>
+                  <tr><td><code>POST</code></td><td>Submit data to create a resource or trigger processing</td><td>Neither</td></tr>
+                  <tr><td><code>PUT</code></td><td>Replace an existing resource completely at a target URI</td><td>Idempotent</td></tr>
+                  <tr><td><code>PATCH</code></td><td>Apply partial modifications to a resource</td><td>Not guaranteed</td></tr>
+                  <tr><td><code>DELETE</code></td><td>Remove a specified resource</td><td>Idempotent</td></tr>
+                  <tr><td><code>HEAD</code></td><td>Retrieve response headers only (no body)</td><td>Safe &amp; Idempotent</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>HTTP Status Code Categories</h3>
+            <ul>
+              <li><strong>1xx (Informational):</strong> Request received, continuing process (e.g., <code>101 Switching Protocols</code>).</li>
+              <li><strong>2xx (Success):</strong> Action succeeded (<code>200 OK</code>, <code>201 Created</code>, <code>204 No Content</code>).</li>
+              <li><strong>3xx (Redirection):</strong> Further action needed (<code>301 Moved Permanently</code>, <code>304 Not Modified</code>).</li>
+              <li><strong>4xx (Client Error):</strong> Bad syntax or unauthorized (<code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>403 Forbidden</code>, <code>404 Not Found</code>).</li>
+              <li><strong>5xx (Server Error):</strong> Server failed to fulfill a valid request (<code>500 Internal Server Error</code>, <code>502 Bad Gateway</code>, <code>503 Service Unavailable</code>).</li>
+            </ul>
+
+            <h3>HTTP Headers &amp; HTTPS</h3>
+            <p><strong>Headers</strong> carry metadata as key-value pairs: <code>Host</code>, <code>User-Agent</code>, <code>Accept</code>, <code>Authorization</code> (request), and <code>Content-Type</code>, <code>Cache-Control</code>, <code>Set-Cookie</code> (response). <strong>HTTPS</strong> wraps HTTP inside <strong>TLS</strong>, providing three guarantees: <em>confidentiality</em> (encryption), <em>integrity</em> (tamper detection), and <em>authentication</em> (digital certificates issued by a Certificate Authority).</p>
+
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>Sample HTTP Request &amp; Response</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>GET /api/students/42 HTTP/1.1
+Host: university.edu
+Accept: application/json
+User-Agent: Mozilla/5.0
+
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=UTF-8
+Cache-Control: max-age=60
+
+{"id": 42, "name": "Aarav Sharma", "branch": "CSE"}</code></pre>
+            </div>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-html">← Previous: HTML</a>
+              <a href="#u1-smtp">Next: Protocols – SMTP →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 5: Protocols – SMTP -->
+        <article id="u1-smtp" class="topic-section" data-topic-id="u1-smtp">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.5</span>
+              <h2>Protocols – SMTP (Simple Mail Transfer Protocol)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-smtp" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>SMTP</strong> is an application-layer, text-based <em>push</em> protocol used to send and relay outgoing electronic mail from a mail client to a mail server and between mail servers across the Internet.</p>
+            </div>
+
+            <h3>Purpose &amp; Working Mechanism</h3>
+            <p>SMTP handles <strong>outgoing mail delivery</strong> (not mailbox retrieval). It operates over TCP on <strong>Port 25</strong> (server-to-server relay), <strong>Port 587</strong> (authenticated client submission with STARTTLS), or <strong>Port 465</strong> (SMTPS).</p>
+            <ol>
+              <li>The sender's Mail User Agent (MUA, e.g., Thunderbird) connects to their Mail Submission Agent / SMTP server.</li>
+              <li>The client greets the server with <code>HELO</code> or <code>EHLO</code> (Extended SMTP).</li>
+              <li>The client identifies sender (<code>MAIL FROM:</code>) and recipient (<code>RCPT TO:</code>).</li>
+              <li>After <code>DATA</code>, the message headers and body are transmitted, ending with a single period (<code>.</code>) on its own line.</li>
+              <li>If the recipient is on another domain, the sender's SMTP server queries DNS for the recipient domain's <strong>MX (Mail Exchange)</strong> record and relays the email to the destination SMTP server.</li>
+            </ol>
+
+            <h3>Characteristics &amp; Practical Example</h3>
+            <ul>
+              <li><strong>Push Protocol:</strong> Pushes messages toward the recipient's mail server.</li>
+              <li><strong>7-bit ASCII Limitation:</strong> Classic SMTP only supports 7-bit ASCII text; binary attachments require <strong>MIME</strong> encoding.</li>
+              <li><strong>Store-and-Forward:</strong> Queues messages and retries if the destination server is temporarily unreachable.</li>
+            </ul>
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>SMTP Session Transcript</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>S: 220 mail.college.edu ESMTP Ready
+C: EHLO student-pc.local
+S: 250-mail.college.edu Hello
+C: MAIL FROM:&lt;alice@college.edu&gt;
+S: 250 OK
+C: RCPT TO:&lt;bob@techcorp.com&gt;
+S: 250 OK
+C: DATA
+S: 354 Start mail input; end with &lt;CRLF&gt;.&lt;CRLF&gt;
+C: Subject: Lab Submission
+C:
+C: Please find my Web Tech assignment attached.
+C: .
+S: 250 Message accepted for delivery
+C: QUIT</code></pre>
+            </div>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-http">← Previous: HTTP</a>
+              <a href="#u1-pop3">Next: Protocols – POP3 →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 6: Protocols – POP3 -->
+        <article id="u1-pop3" class="topic-section" data-topic-id="u1-pop3">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.6</span>
+              <h2>Protocols – POP3 (Post Office Protocol Version 3)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-pop3" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>POP3</strong> is a simple, standard <em>pull</em> protocol used by email clients to retrieve messages from a remote mail server to a local device.</p>
+            </div>
+
+            <h3>Working Mechanism (Three States)</h3>
+            <p>POP3 runs over TCP on <strong>Port 110</strong> (plain) or <strong>Port 995</strong> (POP3S with TLS) and progresses through three states:</p>
+            <ol>
+              <li><strong>Authorization State:</strong> Client authenticates with <code>USER</code> and <code>PASS</code> commands.</li>
+              <li><strong>Transaction State:</strong> Client lists message sizes (<code>LIST</code>), downloads messages (<code>RETR</code>), and optionally marks them for deletion (<code>DELE</code>).</li>
+              <li><strong>Update State:</strong> Triggered upon <code>QUIT</code>; the server permanently deletes messages marked with <code>DELE</code> and closes the connection.</li>
+            </ol>
+
+            <h3>Characteristics, Advantages &amp; Limitations</h3>
+            <ul>
+              <li><strong>Download-and-Delete Default:</strong> Historically removes mail from the server after download, freeing server storage and enabling full offline reading.</li>
+              <li><strong>Limitation:</strong> Poor support for multi-device synchronization—folders, read/unread flags, and sent items stay local to one computer.</li>
+            </ul>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-smtp">← Previous: SMTP</a>
+              <a href="#u1-mime">Next: MIME →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 7: MIME -->
+        <article id="u1-mime" class="topic-section" data-topic-id="u1-mime">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.7</span>
+              <h2>MIME (Multipurpose Internet Mail Extensions)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-mime" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>MIME</strong> is an Internet standard that extends the format of email (and HTTP) messages to support non-ASCII character sets (UTF-8), multimedia attachments (images, audio, video, PDFs), and multi-part message bodies.</p>
+            </div>
+
+            <h3>Why MIME is Needed &amp; Key Headers</h3>
+            <p>Because SMTP was originally restricted to 7-bit US-ASCII text, binary files like JPEGs or ZIP archives could not be transmitted directly. MIME solves this by encoding binary data into ASCII characters (most commonly <strong>Base64</strong>) and adding descriptive headers:</p>
+            <ul>
+              <li><code>MIME-Version: 1.0</code> — Indicates the message conforms to MIME.</li>
+              <li><code>Content-Type: type/subtype</code> — Identifies media format (e.g., <code>text/html</code>, <code>image/png</code>, <code>application/pdf</code>, <code>multipart/mixed</code>).</li>
+              <li><code>Content-Transfer-Encoding</code> — Specifies encoding used (<code>7bit</code>, <code>quoted-printable</code>, <code>base64</code>).</li>
+              <li><code>Content-Disposition</code> — Hints whether content should display <code>inline</code> or as an <code>attachment</code> with a filename.</li>
+            </ul>
+
+            <div class="code-block-wrap">
+              <div class="code-block-header"><span>MIME Multipart Email Example</span><button type="button" class="copy-code-btn">Copy</button></div>
+              <pre><code>MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_123"
+
+--BOUNDARY_123
+Content-Type: text/plain; charset="UTF-8"
+
+Hello, please find the syllabus PDF attached.
+--BOUNDARY_123
+Content-Type: application/pdf; name="syllabus.pdf"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="syllabus.pdf"
+
+JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBvYmoK...
+--BOUNDARY_123--</code></pre>
+            </div>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-pop3">← Previous: POP3</a>
+              <a href="#u1-imap">Next: IMAP →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 8: IMAP + Email Comparison Table -->
+        <article id="u1-imap" class="topic-section" data-topic-id="u1-imap">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.8</span>
+              <h2>IMAP (Internet Message Access Protocol)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-imap" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> <strong>IMAP</strong> (currently IMAP4rev1/rev2) is an application-layer email retrieval protocol that stores messages on the mail server and synchronizes folders, flags, and message state across multiple client devices.</p>
+            </div>
+
+            <h3>Working Mechanism &amp; Characteristics</h3>
+            <p>Operating over TCP <strong>Port 143</strong> (or <strong>Port 993</strong> for IMAPS with TLS), IMAP keeps the authoritative mailbox on the server. Clients fetch headers first for fast browsing and download attachments only on demand. Actions such as reading, starring, moving to folders, or deleting sync bidirectionally across phones, laptops, and webmail.</p>
+
+            <h3>Comparison Table: SMTP vs. POP3 vs. IMAP</h3>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr><th>Parameter</th><th>SMTP</th><th>POP3</th><th>IMAP</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Primary Role</strong></td><td>Sending &amp; relaying outgoing mail</td><td>Retrieving incoming mail</td><td>Retrieving &amp; managing incoming mail</td></tr>
+                  <tr><td><strong>Protocol Type</strong></td><td>Push protocol</td><td>Pull protocol</td><td>Pull &amp; synchronize protocol</td></tr>
+                  <tr><td><strong>Default Ports</strong></td><td>25, 587 (STARTTLS), 465 (SMTPS)</td><td>110 (plain), 995 (POP3S)</td><td>143 (plain), 993 (IMAPS)</td></tr>
+                  <tr><td><strong>Mail Storage</strong></td><td>Temporary relay queue</td><td>Downloaded to local device</td><td>Stored &amp; managed on server</td></tr>
+                  <tr><td><strong>Multi-Device Sync</strong></td><td>Not applicable</td><td>No (state stays local)</td><td>Yes (real-time folder &amp; flag sync)</td></tr>
+                  <tr><td><strong>Partial Fetch</strong></td><td>No</td><td>Downloads entire message</td><td>Can fetch headers/parts on demand</td></tr>
+                  <tr><td><strong>Offline Access</strong></td><td>Queues outgoing mail</td><td>Full offline access after download</td><td>Cached offline access if client supports</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-mime">← Previous: MIME</a>
+              <a href="#u1-dns">Next: Domain Name Server (DNS) →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 9: Domain Name Server (DNS) -->
+        <article id="u1-dns" class="topic-section" data-topic-id="u1-dns">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.9</span>
+              <h2>Domain Name Server (DNS)</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-dns" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> The <strong>Domain Name System (DNS)</strong> is the hierarchical, distributed naming system of the Internet that translates human-readable domain names (such as <code>www.example.edu</code>) into machine-routable IP addresses (such as <code>93.184.216.34</code>).</p>
+            </div>
+
+            <h3>DNS Hierarchy &amp; Common Record Types</h3>
+            <ul>
+              <li><strong>Root Servers (<code>.</code>):</strong> 13 logical root server clusters worldwide that direct queries to Top-Level Domain (TLD) servers.</li>
+              <li><strong>TLD Servers:</strong> Manage extensions like <code>.com</code>, <code>.org</code>, <code>.edu</code>, <code>.in</code>.</li>
+              <li><strong>Authoritative Name Servers:</strong> Hold the actual DNS zone records for a specific domain.</li>
+              <li><strong>Key Record Types:</strong> <code>A</code> (IPv4 address), <code>AAAA</code> (IPv6 address), <code>CNAME</code> (alias), <code>MX</code> (mail server), <code>NS</code> (name server), <code>TXT</code> (verification/SPF).</li>
+            </ul>
+
+            <h3>Step-by-Step Domain Resolution Process</h3>
+            <div class="diagram-box">
+              <svg viewBox="0 0 700 220" width="660" height="210" role="img" aria-label="DNS Step by Step Resolution Diagram">
+                <rect x="20" y="80" width="110" height="60" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="75" y="106" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">Browser / OS</text>
+                <text x="75" y="124" fill="#A3B0C7" font-size="10" text-anchor="middle">Client</text>
+
+                <rect x="200" y="80" width="130" height="60" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="2"/>
+                <text x="265" y="106" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">Recursive</text>
+                <text x="265" y="124" fill="#A3B0C7" font-size="10" text-anchor="middle">ISP Resolver</text>
+
+                <rect x="470" y="15" width="180" height="46" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="1.8"/>
+                <text x="560" y="42" fill="#F1F5FF" font-size="12" font-weight="600" text-anchor="middle">1. Root Name Server (.)</text>
+
+                <rect x="470" y="85" width="180" height="46" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="1.8"/>
+                <text x="560" y="112" fill="#F1F5FF" font-size="12" font-weight="600" text-anchor="middle">2. TLD Server (.edu)</text>
+
+                <rect x="470" y="155" width="180" height="46" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="1.8"/>
+                <text x="560" y="182" fill="#F1F5FF" font-size="12" font-weight="600" text-anchor="middle">3. Authoritative Server</text>
+
+                <line x1="130" y1="100" x2="198" y2="100" stroke="#7898FF" stroke-width="2"/>
+                <line x1="198" y1="120" x2="130" y2="120" stroke="#55D6BE" stroke-width="2"/>
+                <line x1="330" y1="95" x2="468" y2="38" stroke="#F5B971" stroke-width="1.6"/>
+                <line x1="330" y1="108" x2="468" y2="108" stroke="#F5B971" stroke-width="1.6"/>
+                <line x1="330" y1="122" x2="468" y2="178" stroke="#55D6BE" stroke-width="1.6"/>
+              </svg>
+              <div class="diagram-caption">Figure 1.2: Recursive and Iterative DNS Resolution Workflow (Port 53 UDP/TCP)</div>
+            </div>
+
+            <ol>
+              <li><strong>Cache Check:</strong> The browser and OS check their local DNS cache (and <code>hosts</code> file). If missed, the query goes to the configured <strong>Recursive DNS Resolver</strong> (ISP or <code>8.8.8.8</code> / <code>1.1.1.1</code>).</li>
+              <li><strong>Root Server Query:</strong> If uncached, the recursive resolver asks a Root Server for <code>www.example.edu</code>. The Root Server replies with the referral to the <code>.edu</code> TLD server.</li>
+              <li><strong>TLD Server Query:</strong> The resolver queries the <code>.edu</code> TLD server, which responds with the IP of the authoritative name server for <code>example.edu</code>.</li>
+              <li><strong>Authoritative Query:</strong> The resolver queries the authoritative server, which returns the exact <code>A</code> (or <code>AAAA</code>) IP address record.</li>
+              <li><strong>Caching &amp; Response:</strong> The resolver caches the IP for its <strong>TTL (Time To Live)</strong> and returns it to the browser, which then connects to the web server.</li>
+            </ol>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-imap">← Previous: IMAP</a>
+              <a href="#u1-browsers">Next: Web Browsers →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 10: Web Browsers -->
+        <article id="u1-browsers" class="topic-section" data-topic-id="u1-browsers">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.10</span>
+              <h2>Web Browsers</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-browsers" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> A <strong>Web Browser</strong> is a client-side software application that retrieves resources from web servers over HTTP/HTTPS, interprets HTML, CSS, and JavaScript, and renders interactive web pages to the user.</p>
+            </div>
+
+            <h3>Browser Architecture &amp; Core Components</h3>
+            <ul>
+              <li><strong>User Interface (UI):</strong> Address bar, back/forward buttons, tabs, and bookmarks.</li>
+              <li><strong>Browser Engine:</strong> Marshals actions between the UI and the rendering engine.</li>
+              <li><strong>Rendering Engine:</strong> Parses HTML into the <strong>DOM tree</strong> and CSS into the <strong>CSSOM tree</strong>, combines them into a Render Tree, computes layout, and paints pixels (e.g., <em>Blink</em> in Chrome/Edge, <em>Gecko</em> in Firefox, <em>WebKit</em> in Safari).</li>
+              <li><strong>Networking Layer:</strong> Handles HTTP/HTTPS requests, DNS lookups, TLS handshakes, and caching.</li>
+              <li><strong>JavaScript Engine:</strong> Parses and executes JS code using Just-In-Time (JIT) compilation (e.g., <em>V8</em>, <em>SpiderMonkey</em>, <em>JavaScriptCore</em>).</li>
+              <li><strong>Data Persistence:</strong> Manages Cookies, <code>localStorage</code>, <code>sessionStorage</code>, and IndexedDB.</li>
+            </ul>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-dns">← Previous: DNS</a>
+              <a href="#u1-servers">Next: Web Servers →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TOPIC 11: Web Servers -->
+        <article id="u1-servers" class="topic-section" data-topic-id="u1-servers">
+          <div class="topic-header">
+            <div class="topic-title-wrap">
+              <span class="topic-number">TOPIC 1.11</span>
+              <h2>Web Servers</h2>
+            </div>
+            <button type="button" class="complete-btn" data-topic-id="u1-servers" aria-pressed="false">○ Mark as Completed</button>
+          </div>
+          <div class="topic-body">
+            <div class="definition-box">
+              <p><strong>Definition:</strong> A <strong>Web Server</strong> is hardware and/or software (such as Apache HTTP Server, Nginx, or IIS) that stores web assets, listens on TCP ports 80/443, processes incoming HTTP/HTTPS requests, and delivers responses to clients.</p>
+            </div>
+
+            <h3>Working Mechanism &amp; Features</h3>
+            <ol>
+              <li><strong>Listen:</strong> The server binds to a socket (e.g., <code>0.0.0.0:443</code>) and awaits client connections.</li>
+              <li><strong>Parse Request:</strong> Reads the HTTP method, path, headers, and virtual host (<code>Host: example.com</code>).</li>
+              <li><strong>Static vs. Dynamic Processing:</strong> Static files (HTML, CSS, PNG) are read directly from disk. Dynamic requests are forwarded via reverse proxy or gateway (CGI/WSGI/FastCGI) to an application runtime (Node.js, Python, Java, PHP) and database.</li>
+              <li><strong>Respond &amp; Log:</strong> Returns the HTTP status code and payload, and records access/error logs.</li>
+            </ol>
+
+            <h3>Key Capabilities</h3>
+            <ul>
+              <li><strong>Virtual Hosting:</strong> Serving multiple domain names from a single physical server IP.</li>
+              <li><strong>Reverse Proxying &amp; Load Balancing:</strong> Distributing traffic across backend app servers (a strength of Nginx).</li>
+              <li><strong>TLS Termination, Compression (Gzip/Brotli), &amp; Caching:</strong> Improving security and latency.</li>
+            </ul>
+
+            <div class="topic-nav-bar">
+              <a href="#u1-browsers">← Previous: Web Browsers</a>
+              <a href="#unit-1-revision">Next: Quick Revision &amp; FAQ →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- UNIT 1 QUICK REVISION -->
+        <section id="unit-1-revision" class="revision-section" aria-labelledby="u1-rev-title">
+          <h2 id="u1-rev-title">Unit 1 – Quick Revision &amp; Exam Prep</h2>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">High-yield definitions, key protocol ports, differences, and university exam FAQs.</p>
+
+          <div class="revision-grid">
+            <div class="revision-card">
+              <h3>Important Definitions &amp; Ports</h3>
+              <ul>
+                <li><strong>HTTP / HTTPS:</strong> Stateless web transfer (Ports <strong>80 / 443</strong>).</li>
+                <li><strong>SMTP:</strong> Outgoing mail push protocol (Ports <strong>25 / 587 / 465</strong>).</li>
+                <li><strong>POP3:</strong> Download-and-delete mail pull (Ports <strong>110 / 995</strong>).</li>
+                <li><strong>IMAP:</strong> Server-synced multi-device mail (Ports <strong>143 / 993</strong>).</li>
+                <li><strong>DNS:</strong> Domain-to-IP resolution (Port <strong>53</strong>).</li>
+                <li><strong>MIME:</strong> Enables attachments &amp; UTF-8 over SMTP/HTTP.</li>
+              </ul>
+            </div>
+
+            <div class="revision-card">
+              <h3>Key Differences to Remember</h3>
+              <ul>
+                <li><strong>Internet vs. WWW:</strong> Infrastructure vs. hypertext service.</li>
+                <li><strong>GET vs. POST:</strong> URL-visible, idempotent retrieval vs. body-carried state mutation.</li>
+                <li><strong>POP3 vs. IMAP:</strong> Local single-device storage vs. server-side multi-device sync.</li>
+                <li><strong>Static vs. Dynamic Web Server:</strong> Serves pre-built files vs. executes backend code per request.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:20px;">
+            <h3 style="font-size:1rem;margin-bottom:8px;">Frequently Asked Exam Questions</h3>
+            <div class="faq-item">
+              <div class="faq-question">Q1. Why is HTTP called a stateless protocol, and how do web apps maintain sessions?</div>
+              <div class="faq-answer">HTTP servers do not retain client state between independent requests. Web apps maintain state using HTTP Cookies (<code>Set-Cookie</code>), server-side session IDs, or Authorization tokens (JWT).</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q2. Explain the role of MX records in email delivery.</div>
+              <div class="faq-answer">When an SMTP server needs to deliver mail to another domain, it queries DNS for that domain's <code>MX</code> (Mail Exchange) record to discover the hostname of the receiving mail server.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q3. What is the difference between a Browser Engine and a Rendering Engine?</div>
+              <div class="faq-answer">The Browser Engine coordinates communication between the browser UI and the Rendering Engine, whereas the Rendering Engine parses HTML/CSS into DOM/CSSOM trees and paints the page on screen.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Unit Pagination -->
+        <nav class="unit-pagination" aria-label="Unit Pagination">
+          <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+          <a href="unit-2.html" class="btn btn-primary">Next: Unit 2 – HTML, CSS, JS &amp; XML →</a>
+        </nav>
+
+        <footer class="site-footer">
+          <span>Unit 1 – Internet Fundamentals and Web Architecture</span>
+          <span>Web Technology – The Complete Learning Library</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/syllabus-data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

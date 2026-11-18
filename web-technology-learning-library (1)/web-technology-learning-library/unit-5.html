@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unit 5 – Web 4.0 and Emerging Web Technologies: AI-Powered Web, DWeb, Blockchain Integration, IoT, AR/VR, Smart Web, Adaptive Interfaces, Web Automation, and 5G.">
+  <title>Unit 5 – Web 4.0 and Emerging Web Technologies | Web Technology Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/units.css">
+</head>
+<body data-unit-id="5">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/logo.svg" alt="Web Technology Library Logo" class="brand-logo">
+        <span class="brand-text">
+          <span class="brand-title">Web Technology</span>
+          <span class="brand-subtitle">The Complete Learning Library</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="index.html" class="header-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Dashboard</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="header-search" role="search">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="global-search-input" class="search-input" type="search" placeholder="Search all 63 syllabus topics..." aria-label="Search syllabus topics" autocomplete="off">
+        <span class="search-kbd">/</span>
+      </div>
+      <div id="search-results-dropdown" class="search-results-dropdown" role="region" aria-label="Search results"></div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-progress-pill" title="Overall Syllabus Completion">
+        <span>Overall:</span>
+        <strong id="header-progress-percent">0%</strong>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle" type="button" aria-label="Switch to light theme">
+        <span aria-hidden="true">☀️</span> <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside id="site-sidebar" class="sidebar" aria-label="Course and Unit Navigation">
+      <div class="sidebar-section-label">Library Navigation</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="index.html" class="sidebar-link"><span>← Back to Dashboard</span><span class="sidebar-unit-badge">Home</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">All Units</div>
+      <ul class="sidebar-nav-list">
+        <li><a href="unit-1.html" class="sidebar-link"><span>1. Internet &amp; Web Arch</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-2.html" class="sidebar-link"><span>2. HTML, CSS, JS &amp; XML</span><span class="sidebar-unit-badge">8h</span></a></li>
+        <li><a href="unit-3.html" class="sidebar-link"><span>3. Web Services &amp; AJAX</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-4.html" class="sidebar-link"><span>4. Web 2.0, 3.0 &amp; Modern</span><span class="sidebar-unit-badge">7h</span></a></li>
+        <li><a href="unit-5.html" class="sidebar-link active"><span>5. Web 4.0 &amp; Emerging</span><span class="sidebar-unit-badge">7h</span></a></li>
+      </ul>
+
+      <div class="sidebar-section-label">Unit 5 Topics (9)</div>
+      <ul class="sidebar-topics-list">
+        <li><a href="#u5-web4" class="sidebar-topic-link" data-topic-id="u5-web4"><span class="sidebar-topic-dot"></span><span>1. Web 4.0: AI-Powered Web</span></a></li>
+        <li><a href="#u5-dweb" class="sidebar-topic-link" data-topic-id="u5-dweb"><span class="sidebar-topic-dot"></span><span>2. Decentralized Web (DWeb)</span></a></li>
+        <li><a href="#u5-blockchain-int" class="sidebar-topic-link" data-topic-id="u5-blockchain-int"><span class="sidebar-topic-dot"></span><span>3. Blockchain Integration</span></a></li>
+        <li><a href="#u5-iot" class="sidebar-topic-link" data-topic-id="u5-iot"><span class="sidebar-topic-dot"></span><span>4. IoT in Web Development</span></a></li>
+        <li><a href="#u5-ar-vr" class="sidebar-topic-link" data-topic-id="u5-ar-vr"><span class="sidebar-topic-dot"></span><span>5. AR &amp; VR in Web</span></a></li>
+        <li><a href="#u5-smart-web" class="sidebar-topic-link" data-topic-id="u5-smart-web"><span class="sidebar-topic-dot"></span><span>6. Smart Web</span></a></li>
+        <li><a href="#u5-adaptive" class="sidebar-topic-link" data-topic-id="u5-adaptive"><span class="sidebar-topic-dot"></span><span>7. Adaptive Interfaces</span></a></li>
+        <li><a href="#u5-automation" class="sidebar-topic-link" data-topic-id="u5-automation"><span class="sidebar-topic-dot"></span><span>8. Web Automation</span></a></li>
+        <li><a href="#u5-5g" class="sidebar-topic-link" data-topic-id="u5-5g"><span class="sidebar-topic-dot"></span><span>9. Impact of 5G on Web</span></a></li>
+        <li><a href="#unit-5-revision" class="sidebar-topic-link"><span class="sidebar-topic-dot"></span><span>★ Quick Revision &amp; FAQ</span></a></li>
+      </ul>
+    </aside>
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <main id="main-content" class="main-content">
+      <div class="content-container">
+
+        <section class="unit-hero">
+          <div class="unit-hero-top">
+            <div class="unit-hero-badges">
+              <span class="badge-unit">Unit 5</span>
+              <span class="badge-duration">Duration: 7 Hours</span>
+            </div>
+            <a href="index.html" class="btn btn-secondary">← Back to Dashboard</a>
+          </div>
+          <h1>Unit 5 – Web 4.0 and Emerging Web Technologies</h1>
+          <p class="unit-hero-desc">Examine next-generation web paradigms and emerging engineering practices: AI-powered personalization, Decentralized Web (DWeb), Blockchain Integration, IoT dashboards, WebXR (AR/VR), the Smart Web, Adaptive Interfaces, Web Automation, and 5G connectivity.</p>
+          <div class="unit-progress-box">
+            <div class="unit-progress-row">
+              <span id="unit-progress-count">0 / 9 Topics Completed</span>
+              <strong id="unit-progress-percent">0%</strong>
+            </div>
+            <div class="progress-track"><div id="unit-progress-bar" class="progress-fill"></div></div>
+          </div>
+        </section>
+
+        <section class="topic-index-card" aria-label="Unit 5 Topic Index">
+          <h2>Syllabus Topics in Unit 5</h2>
+          <div class="topic-pill-grid">
+            <a href="#u5-web4" class="topic-pill" data-topic-id="u5-web4">1. Web 4.0</a>
+            <a href="#u5-dweb" class="topic-pill" data-topic-id="u5-dweb">2. DWeb &amp; Blockchain</a>
+            <a href="#u5-blockchain-int" class="topic-pill" data-topic-id="u5-blockchain-int">3. Blockchain Integration</a>
+            <a href="#u5-iot" class="topic-pill" data-topic-id="u5-iot">4. IoT in Web Dev</a>
+            <a href="#u5-ar-vr" class="topic-pill" data-topic-id="u5-ar-vr">5. AR &amp; VR in Web</a>
+            <a href="#u5-smart-web" class="topic-pill" data-topic-id="u5-smart-web">6. Smart Web</a>
+            <a href="#u5-adaptive" class="topic-pill" data-topic-id="u5-adaptive">7. Adaptive Interfaces</a>
+            <a href="#u5-automation" class="topic-pill" data-topic-id="u5-automation">8. Web Automation</a>
+            <a href="#u5-5g" class="topic-pill" data-topic-id="u5-5g">9. Impact of 5G</a>
+          </div>
+        </section>
+
+        <!-- 5.1 Web 4.0 -->
+        <article id="u5-web4" class="topic-section" data-topic-id="u5-web4">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.1</span><h2>Web 4.0: AI-Powered Web and Personalized Content</h2></div><button type="button" class="complete-btn" data-topic-id="u5-web4" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Web 4.0</strong> (often termed the <em>Symbiotic</em> or <em>Intelligent Web</em>) is an <strong>evolving conceptual paradigm</strong> envisioning deep integration of artificial intelligence, natural language assistants, and context-aware services that proactively adapt to user intent.</p></div>
+            <div class="callout">
+              <div class="callout-title">Conceptual vs. Established Standards Note</div>
+              <p>Unlike HTTP or HTML5, <strong>Web 4.0 is not a formal W3C or IETF standard</strong>. It describes an industry trajectory built on established technologies—Large Language Models (LLMs), recommendation APIs, voice interfaces, and browser ML APIs (such as WebGPU).</p>
+            </div>
+            <h3>Key Capabilities &amp; Working</h3>
+            <ul>
+              <li><strong>AI-Powered Personalization:</strong> Dynamically tailors layouts, search answers, and learning paths using user context and preferences.</li>
+              <li><strong>Intelligent Assistants:</strong> Conversational agents that execute multi-step web tasks (booking, summarizing, coding) via APIs.</li>
+              <li><strong>Limitations:</strong> Algorithmic bias, data privacy concerns, hallucination risks in generative AI, and high compute cost.</li>
+            </ul>
+            <div class="topic-nav-bar"><span></span><a href="#u5-dweb">Next: Decentralized Web (DWeb) →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.2 Decentralized Web (DWeb) -->
+        <article id="u5-dweb" class="topic-section" data-topic-id="u5-dweb">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.2</span><h2>Decentralized Web (DWeb) and Blockchain Integration</h2></div><button type="button" class="complete-btn" data-topic-id="u5-dweb" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> The <strong>Decentralized Web (DWeb)</strong> is an architectural movement to shift web hosting, identity, and data storage away from centralized cloud monopolies toward peer-to-peer (P2P) networks and cryptographic verification.</p></div>
+            <ul>
+              <li><strong>Content Addressing (IPFS):</strong> Instead of location-based URLs (<code>https://server.com/file</code>), IPFS identifies files by cryptographic hash (Content Identifier / CID), fetching them from any available peer.</li>
+              <li><strong>Decentralized Identity (DIDs):</strong> W3C-standardized identifiers allowing users to control credentials without relying on a single identity provider.</li>
+              <li><strong>Relationship with Blockchain:</strong> Blockchains provide tamper-evident registries for naming (ENS), ownership, and smart-contract logic, while P2P networks like IPFS handle heavy file storage.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u5-web4">← Previous: Web 4.0</a><a href="#u5-blockchain-int">Next: Blockchain Integration →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.3 Blockchain Integration -->
+        <article id="u5-blockchain-int" class="topic-section" data-topic-id="u5-blockchain-int">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.3</span><h2>Blockchain Integration</h2></div><button type="button" class="complete-btn" data-topic-id="u5-blockchain-int" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Blockchain Integration</strong> in web development connects standard HTML/JS frontends to distributed ledgers and smart contracts via JSON-RPC providers and browser wallet extensions.</p></div>
+            <h3>Architecture of a Decentralized Application (dApp)</h3>
+            <ol>
+              <li><strong>Frontend (HTML/CSS/JS):</strong> Standard web interface communicating with a wallet provider (e.g., EIP-1193 <code>window.ethereum</code>).</li>
+              <li><strong>Smart Contracts:</strong> Self-executing code deployed on-chain (e.g., Solidity on EVM networks) enforcing business rules transparently.</li>
+              <li><strong>RPC Node / Indexer:</strong> Bridges browser requests to the P2P blockchain network.</li>
+            </ol>
+            <p><strong>Applications:</strong> Verifiable university degree certificates, supply-chain provenance portals, and decentralized finance (DeFi). <strong>Limitations:</strong> Gas fees, irreversible user key loss, and UX friction.</p>
+            <div class="topic-nav-bar"><a href="#u5-dweb">← Previous: DWeb</a><a href="#u5-iot">Next: IoT in Web Development →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.4 IoT in Web Development -->
+        <article id="u5-iot" class="topic-section" data-topic-id="u5-iot">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.4</span><h2>Internet of Things (IoT) in Web Development</h2></div><button type="button" class="complete-btn" data-topic-id="u5-iot" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>IoT in Web Development</strong> connects physical sensors, microcontrollers, and smart devices to web servers and browser dashboards for real-time telemetry monitoring and remote actuation.</p></div>
+            <div class="diagram-box">
+              <svg viewBox="0 0 660 115" width="620" height="110" role="img" aria-label="IoT to Web Dashboard Architecture">
+                <rect x="15" y="25" width="135" height="58" rx="8" fill="#151F33" stroke="#F5B971" stroke-width="2"/>
+                <text x="82" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">Sensors / ESP32</text>
+                <text x="82" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">Temp, Motion, GPS</text>
+
+                <rect x="180" y="25" width="135" height="58" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="247" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">MQTT / HTTP</text>
+                <text x="247" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">Gateway &amp; Broker</text>
+
+                <rect x="345" y="25" width="135" height="58" rx="8" fill="#151F33" stroke="#55D6BE" stroke-width="2"/>
+                <text x="412" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">Web Server + DB</text>
+                <text x="412" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">Time-Series Storage</text>
+
+                <rect x="510" y="25" width="135" height="58" rx="8" fill="#151F33" stroke="#7898FF" stroke-width="2"/>
+                <text x="577" y="50" fill="#F1F5FF" font-size="12" font-weight="700" text-anchor="middle">Web Dashboard</text>
+                <text x="577" y="68" fill="#A3B0C7" font-size="10" text-anchor="middle">WebSockets / Charts</text>
+
+                <line x1="150" y1="54" x2="180" y2="54" stroke="#A3B0C7" stroke-width="1.5"/>
+                <line x1="315" y1="54" x2="345" y2="54" stroke="#A3B0C7" stroke-width="1.5"/>
+                <line x1="480" y1="54" x2="510" y2="54" stroke="#A3B0C7" stroke-width="1.5"/>
+              </svg>
+              <div class="diagram-caption">Figure 5.1: End-to-End IoT Telemetry Pipeline to Browser Dashboard</div>
+            </div>
+            <p><strong>Protocols:</strong> Lightweight <strong>MQTT</strong> (publish-subscribe) and <strong>CoAP</strong> for constrained devices; <strong>WebSockets</strong> or <strong>Server-Sent Events (SSE)</strong> to stream live updates to browser dashboards. <strong>Applications:</strong> Smart campus energy monitors, precision agriculture, and industrial predictive maintenance.</p>
+            <div class="topic-nav-bar"><a href="#u5-blockchain-int">← Previous: Blockchain Integration</a><a href="#u5-ar-vr">Next: AR &amp; VR in Web →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.5 AR and VR in Web -->
+        <article id="u5-ar-vr" class="topic-section" data-topic-id="u5-ar-vr">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.5</span><h2>Augmented Reality (AR) and Virtual Reality (VR) in Web</h2></div><button type="button" class="complete-btn" data-topic-id="u5-ar-vr" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> Web-based <strong>AR and VR</strong> deliver interactive 3D and spatial experiences directly inside a web browser without app-store downloads, powered by the W3C <strong>WebXR Device API</strong> and <strong>WebGL / Three.js</strong>.</p></div>
+            <div class="table-responsive">
+              <table>
+                <thead><tr><th>Parameter</th><th>Augmented Reality (AR)</th><th>Virtual Reality (VR)</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Environment</strong></td><td>Overlays 3D digital objects onto the real physical world</td><td>Replaces the real world with a fully simulated 3D environment</td></tr>
+                  <tr><td><strong>Hardware</strong></td><td>Smartphone camera, AR glasses</td><td>VR headsets (Meta Quest, Apple Vision Pro, etc.)</td></tr>
+                  <tr><td><strong>Web API</strong></td><td>WebXR (<code>immersive-ar</code> session)</td><td>WebXR (<code>immersive-vr</code> session) + WebGL</td></tr>
+                  <tr><td><strong>Use Cases</strong></td><td>Virtual furniture placement, anatomy overlays</td><td>Virtual campus tours, 3D engineering simulations</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="topic-nav-bar"><a href="#u5-iot">← Previous: IoT in Web Dev</a><a href="#u5-smart-web">Next: Smart Web →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.6 Smart Web -->
+        <article id="u5-smart-web" class="topic-section" data-topic-id="u5-smart-web">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.6</span><h2>Smart Web</h2></div><button type="button" class="complete-btn" data-topic-id="u5-smart-web" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> The <strong>Smart Web</strong> is an <strong>evolving conceptual vision</strong> describing the convergence of Semantic Web knowledge graphs (Web 3.0), ubiquitous IoT sensors, and autonomous AI agents to deliver proactive, ambient digital experiences.</p></div>
+            <p><strong>Established Foundations vs. Vision:</strong> While individual building blocks—RDF/Schema.org, REST/GraphQL APIs, IoT telemetry, and AI assistants—are established today, a universally interoperable "Smart Web" where autonomous agents negotiate seamlessly across all websites remains an active research and industry frontier rather than a finalized standard.</p>
+            <div class="topic-nav-bar"><a href="#u5-ar-vr">← Previous: AR &amp; VR</a><a href="#u5-adaptive">Next: Adaptive Interfaces →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.7 Adaptive Interfaces -->
+        <article id="u5-adaptive" class="topic-section" data-topic-id="u5-adaptive">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.7</span><h2>Adaptive Interfaces</h2></div><button type="button" class="complete-btn" data-topic-id="u5-adaptive" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Adaptive Interfaces</strong> are web user interfaces that dynamically adjust layout, input ergonomics, media resolution, and color/motion behavior based on viewport size, device capabilities, network speed, and user accessibility preferences.</p></div>
+            <ul>
+              <li><strong>Responsive &amp; Container Queries:</strong> CSS Grid, Flexbox, <code>@media</code> queries, and modern <code>@container</code> queries.</li>
+              <li><strong>Accessibility &amp; User Preferences:</strong> Supporting <code>prefers-reduced-motion</code>, <code>prefers-color-scheme</code>, keyboard focus management, and ARIA landmarks (WCAG 2.1/2.2).</li>
+              <li><strong>Progressive Enhancement:</strong> Core content works on every browser, while advanced features layer cleanly on capable devices.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u5-smart-web">← Previous: Smart Web</a><a href="#u5-automation">Next: Web Automation →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.8 Web Automation -->
+        <article id="u5-automation" class="topic-section" data-topic-id="u5-automation">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.8</span><h2>Web Automation</h2></div><button type="button" class="complete-btn" data-topic-id="u5-automation" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>Web Automation</strong> is the programmatic control of web browsers to execute repetitive interactions, end-to-end (E2E) software testing, performance auditing, and workflow integration without manual clicking.</p></div>
+            <ul>
+              <li><strong>Automated Testing Frameworks:</strong> <strong>Playwright</strong>, <strong>Selenium</strong>, and <strong>Cypress</strong> drive headless Chromium/Firefox/WebKit browsers in CI/CD pipelines to verify login flows, forms, and regressions.</li>
+              <li><strong>Benefits:</strong> Faster release cycles, cross-browser reliability, and elimination of manual testing errors.</li>
+              <li><strong>Limitations:</strong> Brittle CSS/DOM selectors can break tests when UI changes; ethical scraping must respect <code>robots.txt</code> and rate limits.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u5-adaptive">← Previous: Adaptive Interfaces</a><a href="#u5-5g">Next: Impact of 5G →</a></div>
+          </div>
+        </article>
+
+        <!-- 5.9 Impact of 5G on Web Technologies -->
+        <article id="u5-5g" class="topic-section" data-topic-id="u5-5g">
+          <div class="topic-header"><div class="topic-title-wrap"><span class="topic-number">TOPIC 5.9</span><h2>Impact of 5G on Web Technologies</h2></div><button type="button" class="complete-btn" data-topic-id="u5-5g" aria-pressed="false">○ Mark as Completed</button></div>
+          <div class="topic-body">
+            <div class="definition-box"><p><strong>Definition:</strong> <strong>5G (Fifth-Generation Wireless)</strong> is the cellular network standard delivering multi-gigabit peak throughput, ultra-low latency, and massive device density—fundamentally expanding what mobile web applications can compute and stream.</p></div>
+            <h3>Three Pillars of 5G &amp; Web Impact</h3>
+            <ul>
+              <li><strong>eMBB (Enhanced Mobile Broadband):</strong> Multi-Gbps speeds enable instant 4K/8K adaptive video streaming and heavy WebAssembly/WebXR asset downloads.</li>
+              <li><strong>URLLC (Ultra-Reliable Low-Latency Communications):</strong> Sub-10ms radio latency unlocks real-time cloud gaming, collaborative whiteboards, and responsive edge-computed web apps.</li>
+              <li><strong>mMTC (Massive Machine-Type Communications):</strong> Supports up to ~1 million IoT devices per km², fueling large-scale smart-city web dashboards.</li>
+            </ul>
+            <div class="topic-nav-bar"><a href="#u5-automation">← Previous: Web Automation</a><a href="#unit-5-revision">Next: Quick Revision &amp; FAQ →</a></div>
+          </div>
+        </article>
+
+        <!-- UNIT 5 QUICK REVISION -->
+        <section id="unit-5-revision" class="revision-section" aria-labelledby="u5-rev-title">
+          <h2 id="u5-rev-title">Unit 5 – Quick Revision &amp; Exam Prep</h2>
+          <div class="revision-grid">
+            <div class="revision-card">
+              <h3>Important Definitions</h3>
+              <ul>
+                <li><strong>Web 4.0 / Smart Web:</strong> Evolving AI-driven, context-aware web vision (conceptual, not a formal W3C spec).</li>
+                <li><strong>IPFS:</strong> Content-addressed P2P file storage using cryptographic hashes (CIDs).</li>
+                <li><strong>WebXR:</strong> W3C API for browser-based AR and VR sessions.</li>
+                <li><strong>5G Pillars:</strong> eMBB (speed), URLLC (low latency), mMTC (massive IoT).</li>
+              </ul>
+            </div>
+            <div class="revision-card">
+              <h3>Key Differences</h3>
+              <ul>
+                <li><strong>AR vs. VR:</strong> Overlays digital objects on reality vs. full virtual immersion.</li>
+                <li><strong>Traditional Web vs. DWeb:</strong> Centralized server URLs vs. P2P content addressing + blockchain.</li>
+                <li><strong>Responsive vs. Adaptive:</strong> Fluid CSS layout scaling vs. holistic device, network, and accessibility adaptation.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top:20px;">
+            <h3 style="font-size:1rem;margin-bottom:8px;">Frequently Asked Exam Questions</h3>
+            <div class="faq-item">
+              <div class="faq-question">Q1. Why is Web 4.0 / Smart Web described as an evolving concept rather than a fixed standard?</div>
+              <div class="faq-answer">Unlike HTTP or HTML5, no single standards body has ratified a "Web 4.0 specification." Instead, the term describes the ongoing convergence of AI agents, personalization, IoT, and semantic data.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q2. How do MQTT and WebSockets work together in an IoT web dashboard?</div>
+              <div class="faq-answer">Constrained IoT sensors publish telemetry over lightweight MQTT to a broker/server, which forwards live updates to the user's browser dashboard over a persistent WebSocket connection.</div>
+            </div>
+          </div>
+        </section>
+
+        <nav class="unit-pagination" aria-label="Unit Pagination">
+          <a href="unit-4.html" class="btn btn-secondary">← Previous: Unit 4</a>
+          <a href="index.html" class="btn btn-primary">Back to Dashboard Home ✓</a>
+        </nav>
+
+        <footer class="site-footer">
+          <span>Unit 5 – Web 4.0 and Emerging Web Technologies</span>
+          <span>Web Technology – The Complete Learning Library</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/syllabus-data.js"></script>
+  <script src="assets/js/progress.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
